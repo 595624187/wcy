@@ -6,7 +6,7 @@
     <div slot="learn-body">
       <video autoplay controls>
         <source
-            src="https://vdn.vzuu.com/LD/68335efe-f732-11ea-a7cb-861e228f83f9.mp4?disable_local_cache=1&auth_key=1618286798-0-0-e12ab71649d72b3beea91cd5717b62a4&f=mp4&bu=http-com&expiration=1618286798&v=ali">
+            src="~assets/mp4/演示.mp4">
       </video>
     </div>
     <div slot="video-button">

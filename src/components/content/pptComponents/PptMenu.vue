@@ -6,18 +6,27 @@
       <button>刷新</button>
     </div>
     <div class="ppt-download">
-      <button>上传</button>
-      <button>下载</button>
+      <input type="file" class="chose-file upload" @click="uploadFile">
+      <button >上传</button>
+      <button class="download" @click="btnDownload">下载</button>
       <button id="p-more">新建文件夹</button>
       <button>移动</button>
-      <button>删除</button>
+      <button class="delete">删除</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "PptMenu"
+  name: "PptMenu",
+  methods:{
+    uploadFile(even){
+      console.log(even);
+    },
+    btnDownload(){
+
+    }
+  }
 }
 </script>
 
@@ -48,7 +57,27 @@ export default {
   height:70px;
 }
 .ppt-download{
-  margin-left:175px;
+  margin-left:100px;
   height:70px;
 }
+.chose-file{
+  width:80px;
+  height:50px;
+  position: relative;
+  top: -13px;
+  left: 90px;
+  z-index: 1;
+  opacity: 0;
+}
+::-webkit-input-placeholder{
+  width: 20px;
+  height:20px;
+}
+.upload{
+  width:80px;
+  height:50px;
+  background: darkcyan;
+  color:white;
+}
+
 </style>

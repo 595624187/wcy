@@ -1,6 +1,7 @@
 <template>
   <div class="ppt-content-item">
-    <ul class="ppt-con">
+    <ul class="ppt-con" @click="ulClick(itemfiles.name)"
+    :class="{activeStyle:itemfiles.name === this.currentFile}">
       <li>{{itemfiles.name}}</li>
       <li>{{itemfiles.user}}</li>
       <li>{{itemfiles.time}}</li>
@@ -13,12 +14,31 @@
 <script>
 export default {
   name: "PptContentItem",
+  data(){
+    return{
+
+    }
+  },
   props: {
     itemfiles:{
-      type:Array,
-      default(){
-        return{}
-      }
+      type:Object,
+      default:null
+    },
+    activeColor:{
+      type:String,
+      default:'rgba(215, 231, 229, 0.54)'
+    }
+  },
+  methods:{
+    ulClick(name){
+      this.$store.state.currentFile=name
+      console.log(this.$store.getters.getObject);
+    },
+
+  },
+  computed:{
+    currentFile(){
+      return this.$store.state.currentFile
     }
   }
 }
@@ -40,5 +60,8 @@ export default {
 
 .ppt-con li:first-child{
   width: 320px;
+}
+.activeStyle{
+  background: rgba(215, 231, 229, 0.54);
 }
 </style>

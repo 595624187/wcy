@@ -10,7 +10,9 @@
       </ul>
     </div>
     <div class="ppt-body">
-      <ppt-content-item v-for="item in files" :itemfiles="item"></ppt-content-item>
+      <ppt-content-item v-for="item in this.$store.state.files"
+                        :itemfiles="item"
+      ></ppt-content-item>
     </div>
   </div>
 </template>
@@ -21,58 +23,6 @@ export default {
   name: "PptContent",
   data(){
     return{
-      files:[
-      {
-        name:'大家撒法艰苦了.ppt',
-            user:'作者',
-          time:'2021/04/13',
-          num:123,
-          url:'https://www.baidu.com'
-      },
-        {
-          name:'asdfasd.ppt',
-          user:'作者',
-          time:'2021/04/13',
-          num:543,
-          url:'https://www.baidu.com'
-        },
-        {
-          name:'asdf.ppt',
-          user:'作者',
-          time:'2021/04/13',
-          num:12,
-          url:'https://www.baidu.com'
-        },
-        {
-          name:'dddddddddddd.ppt',
-          user:'作者',
-          time:'2021/04/13',
-          num:332,
-          url:'https://www.baidu.com'
-        },
-        {
-          name:'2222222222.ppt',
-          user:'作者',
-          time:'2021/04/13',
-          num:21323,
-          url:'https://www.baidu.com'
-        },
-        {
-          name:'fdsfddfdffffff.ppt',
-          user:'作者',
-          time:'2021/04/13',
-          num:2322,
-          url:'https://www.baidu.com'
-        },
-        {
-          name:'cccccccccccccccc.ppt',
-          user:'作者',
-          time:'2021/04/13',
-          num:124341,
-          url:'https://www.baidu.com'
-        }
-
-      ]
     }
   },
   components:{
