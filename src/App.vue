@@ -3,7 +3,7 @@
     <main-tab-bar></main-tab-bar>
     <main-nav></main-nav>
     <main-content></main-content>
-    <div class="content">
+    <div class="main-content">
       <router-view></router-view>
     </div>
   </div>
@@ -28,9 +28,10 @@ export default {
 
 <style>
   @import 'assets/css/base.css';
-  .content{
+  .main-content{
     position: relative;
     top:100px;
     left:200px;
+    z-index: 9;
   }
 </style>

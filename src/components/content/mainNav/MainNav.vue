@@ -15,7 +15,7 @@ export default {
 .main-nav{
   width: 1000px;
   height:100px;
-  background-color: #6095bf;
+  background-color: rgba(96, 149, 191, 0.64);
   position: absolute;
   top:0;
   left:200px;

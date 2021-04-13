@@ -1,10 +1,19 @@
 <template>
-  <h2>课件</h2>
+  <div class="ppt">
+    <ppt-menu></ppt-menu>
+    <ppt-content></ppt-content>
+  </div>
 </template>
 
 <script>
+import PptMenu from "@/components/content/pptComponents/PptMenu";
+import PptContent from "@/components/content/pptComponents/PptContent";
 export default {
-  name: "Ppt"
+  name: "Ppt",
+  components:{
+    PptMenu,
+    PptContent
+  }
 }
 </script>
 

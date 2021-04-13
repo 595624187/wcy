@@ -21,6 +21,6 @@ export default {
     background-color:#F5F5F7;
   }
   :first-child{
-    background-color:#54C19B;
+    background-color: #66cda9;
   }
 </style>

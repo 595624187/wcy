@@ -1,8 +1,9 @@
 <template>
-  <div class="tab-bar-item" @click="itemClick">
-    <div><slot name="item-icon"></slot></div>
-    <div><slot name="item-text"></slot></div>
-  </div>
+    <div class="tab-bar-item" @click="itemClick" :class="{active:isActive&&this.path!=''}">
+     <div><slot name="item-icon"></slot></div>
+     <div><slot name="item-text"></slot></div>
+</div>
+
 </template>
 
 <script>
@@ -11,10 +12,18 @@ export default {
   props:{
     path:String,
   },
+  data(){
+    return{
+  }
+  },
   methods:{
     itemClick(){
-      console.log(this.path)
       this.$router.replace(this.path)
+    }
+  },
+  computed:{
+    isActive(){
+      return this.$route.path.indexOf(this.path)!==-1
     }
   }
 }
@@ -30,5 +39,7 @@ export default {
   align-items: center;
   justify-content: center;
 }
-
+.active{
+  background: rgba(92, 191, 157, 0.25);
+}
 </style>
