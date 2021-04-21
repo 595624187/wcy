@@ -1,12 +1,18 @@
 <template>
   <learn-video>
     <div slot="learn-title">
-      第一章  物理层
+      {{movies[1].title}}
     </div>
     <div slot="learn-body">
-      <video autoplay controls>
-        <source
-            src="~assets/mp4/演示.mp4">
+      <video
+      id="myVideo"
+      class="video-js vjs-default-skin vjs-big-play-centered"
+      controls
+      autoplay
+      preload="auto"
+      ref="videoDemo"
+      >
+        <source src type="video/mp4">
       </video>
     </div>
     <div slot="video-button">
@@ -24,15 +30,31 @@ export default {
     LearnVideo,
     Collapse
   },
+  props:{
+
+  },
   data(){
     return{
       videosorce:{
         title:'aaa',
         src:'http://www.askdfj.jasd.cn/j.jpg',
       },
-
+      movies:this.$store.state.movies,
+      t_src:require('../../assets/mp4/两只老虎.mp4'),
     }
   },
+  methods:{
+
+  },
+  mounted(){
+    this.$refs.videoDemo.src=this.t_src
+  },
+
+
+
+  computed:{
+
+  }
 }
 </script>
 

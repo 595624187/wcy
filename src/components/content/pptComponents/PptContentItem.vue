@@ -6,7 +6,6 @@
       <li>{{itemfiles.user}}</li>
       <li>{{itemfiles.time}}</li>
       <li>{{itemfiles.num}}</li>
-      <li>{{itemfiles.num}}</li>
     </ul>
   </div>
 </template>
@@ -32,7 +31,6 @@ export default {
   methods:{
     ulClick(name){
       this.$store.state.currentFile=name
-      console.log(this.$store.getters.getObject);
     },
 
   },
@@ -51,7 +49,7 @@ export default {
   display: inline-flex;
   width: 160px;
   font-size: 20px;
-  padding: 10px;
+  padding: 5px;
   font-weight: bolder;
 }
 .ppt-content-item ul:hover{
@@ -59,7 +57,7 @@ export default {
 }
 
 .ppt-con li:first-child{
-  width: 320px;
+  width: 450px;
 }
 .activeStyle{
   background: rgba(215, 231, 229, 0.54);

@@ -6,7 +6,6 @@
         <li>上传者</li>
         <li>上传时间</li>
         <li>下载量</li>
-        <li>操作</li>
       </ul>
     </div>
     <div class="ppt-body">
@@ -59,9 +58,10 @@ export default {
   display: inline-flex;
   width: 160px;
   font-size: 20px;
+  padding: 5px;
 }
 .ppt-head ul>li:first-child{
-  width: 320px;
+  width: 450px;
 }
 
 

@@ -59,7 +59,21 @@ const state = {
         }
 
     ],
-    currentFile:''
+    currentFile:'',
+    movies:[
+        {
+            title:'第一章 浪子回头',
+            mv_src:'https://vd4.bdstatic.com/mda-ikdnt9e5vsu629ju/sc/mda-ikdnt9e5vsu629ju.mp4?v_from_s=nj_haokan_4469&auth_key=1618486620-0-0-d6ff886d06ed3d22e64115d375018820&bcevod_channel=searchbox_feed&pd=1&pt=3&abtest='
+        },
+        {
+            title:'第二章 抖音热榜',
+            mv_src:'../../assets/mp4/演示.mp4'
+        },
+        {
+            title:'第三章 两只老虎',
+            mv_src: '../../assets/mp4/两只老虎.mp4'
+        }
+    ]
 }
 
 const store = new Vuex.Store({

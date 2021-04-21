@@ -1,5 +1,5 @@
 <template>
-  <h2>讨论</h2>
+  <h2>{{this.$store.state.movies}}</h2>
 </template>
 
 <script>

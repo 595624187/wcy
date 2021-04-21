@@ -1,14 +1,21 @@
 <template>
   <div class="learn-video">
-    <div class="learn-title"><slot name="learn-title"></slot></div>
-    <slot name="learn-body"></slot>
-    <div class="video-button"><slot name="video-button"></slot></div>
+      <div class="learn-title"><slot name="learn-title"></slot></div>
+      <slot name="learn-body"></slot>
+      <div class="video-button"><slot name="video-button"></slot></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "LearnVideo"
+  name: "LearnVideo",
+  props:{
+
+  },
+  data(){
+    return{
+    }
+  }
 }
 </script>
 
