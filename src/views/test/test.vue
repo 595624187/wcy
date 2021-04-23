@@ -1,10 +1,16 @@
 <template>
-  <h2>测评</h2>
+  <div>
+    <test-main></test-main>
+  </div>
 </template>
 
 <script>
+import testMain from "@/components/content/test/testMain";
 export default {
-  name: "test"
+  name: "test",
+  components:{
+    testMain
+  }
 }
 </script>
 

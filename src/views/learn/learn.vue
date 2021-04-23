@@ -1,18 +1,19 @@
 <template>
   <learn-video>
     <div slot="learn-title">
-      {{movies[1].title}}
+      {{movies[0].title}}
     </div>
     <div slot="learn-body">
       <video
       id="myVideo"
       class="video-js vjs-default-skin vjs-big-play-centered"
       controls
-      autoplay
+
       preload="auto"
       ref="videoDemo"
       >
-        <source src type="video/mp4">
+        <source src
+                type="video/mp4">
       </video>
     </div>
     <div slot="video-button">
@@ -37,10 +38,10 @@ export default {
     return{
       videosorce:{
         title:'aaa',
-        src:'http://www.askdfj.jasd.cn/j.jpg',
+        src:'',
       },
       movies:this.$store.state.movies,
-      t_src:require('../../assets/mp4/两只老虎.mp4'),
+      t_src:require('../../assets/mp4/缘分一道桥.mp4'),
     }
   },
   methods:{

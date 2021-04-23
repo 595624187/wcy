@@ -59,17 +59,7 @@ export default {
 #p-more{
   width: 100px;
 }
-.ppt-menu button{
-  width:80px;
-  height:50px;
-  margin: 10px;
-  font-size: 18px;
-  background: darkcyan;
-  color:white;
-  font-weight: bolder;
-  outline: none;
-  border-radius: 6px;
-}
+
 .ppt-dir{
   height:70px;
 }

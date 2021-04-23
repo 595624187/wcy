@@ -5,7 +5,7 @@ const learn = () => import('@/views/learn/learn')
 const ppt = () => import('@/views/ppt/ppt')
 const talk = () => import('@/views/talk/talk')
 const test = () => import('@/views/test/test')
-
+const login = () => import('@/components/common/login/Login')
 Vue.use(VueRouter)
 const routes=[
     {
@@ -32,7 +32,10 @@ const routes=[
         path:'/test',
         component:test
     },
-
+    {
+        path:'/login',
+        component:login
+    }
 
 ]
 

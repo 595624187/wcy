@@ -56,7 +56,6 @@ export default {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  border:1px solid #2d78f4;
   border-radius: 3px;
 }
 .upload-wrap .file-ele{
@@ -66,15 +65,24 @@ export default {
   opacity: 0;
   height: 100%;
   width: 100%;
-  cursor: pointer;
 }
-.upload-wrap .file-open{
+
+.upload-wrap{
   width:80px;
   height:50px;
   line-height:50px;
   text-align: center;
-  background: darkcyan;
   color:white;
+  background: #66cda9;
   font-weight: bolder;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  z-index: 8;
+}
+.upload-wrap:hover{
+  background: rgba(63, 139, 112, 0.84);
+}
+.file-ele:hover{
+  cursor: pointer;
 }
 </style>

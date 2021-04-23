@@ -1,10 +1,17 @@
 <template>
-  <h2>{{this.$store.state.movies}}</h2>
+  <TalkBar>
+    <h2 slot="talkTitle">标题</h2>
+    <button slot="talkBtn">发布主题</button>
+  </TalkBar>
 </template>
 
 <script>
+import TalkBar from "@/components/content/talkBar/TalkBar";
 export default {
-  name: "talk"
+  name: "talk",
+  components:{
+    TalkBar
+  }
 }
 </script>
 
