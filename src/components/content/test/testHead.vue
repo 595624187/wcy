@@ -7,7 +7,9 @@
     <div class="testLeft" >
       <ul>
         <li v-for="test in tests"
-            @click="liClick(test.index)">{{test.index}}
+            @click="liClick(test.index)"
+            :class="[test.index-1===currentTest?'liActive':'',getStatu(test)?'finished':'']"
+        >{{test.index}}
         </li>
       </ul>
     </div>
@@ -31,13 +33,27 @@ export default {
       default:0,
     }
   },
+  data(){
+    return{
+    }
+  },
   methods:{
     btnClick(){
       this.$emit('btnClick')
     },
     liClick(index){
-
       this.$emit('testChange',index)
+    }
+  },
+  computed:{
+    getStatu(){
+      return function(test){
+        for(let i=0;i<test.data.length;i++){
+          if(test.data[i].state){
+            return true
+          }
+        }
+      }
     }
   }
 }
@@ -67,6 +83,14 @@ export default {
   cursor: pointer;
   background: rgba(167,161,161,0.45);
   color: white;
+}
+.testHead .liActive{
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.testHead .finished{
+  background: rgba(0, 128, 0, 0.73);
+  color:white;
 }
 .testTitle{
   display: flex;

@@ -1,35 +1,30 @@
 <template>
   <div class="testBody">
     <div class="testContent">
-      <form action="value">
-        <span>{{tests[currentTest].index}}.(
-          {{tests[currentTest].type}}){{tests[currentTest].title}}
+      <form action="" :key="test.index">
+        <span>{{test.index}}.(
+          {{test.type}}){{test.title}}
         </span>
-        <div v-for="(index,test) in tests" @click="testFor(index,test)">
-          ttttttttt
-        </div>
-          <label v-for="(index,test) in tests"
-                 for="optionA"
-                 :class="{active:tests[currentTest].data[index].state}">
-            <input type="checkbox"
-                   name="test"
-                   id="optionA"
-                   @click="checkClick(tests,currentTest,$event)">
-                  {{getOption(index)}}
-                  {{tests[currentTest].data[index].detail}}
-          </label>
-<!--        <label for="optionA" :class="{active:tests[currentTest].active}">-->
-<!--          <input type="checkbox" name="test" id="optionA" @click="checkClick(tests,currentTest,$event)"> A {{tests[currentTest].data[0].optionA}}-->
-<!--        </label>-->
-<!--        <label for="optionB" :class="{active:tests[currentTest].active}">-->
-<!--          <input type="checkbox" name="test" id="optionB" @click="checkClick(tests,currentTest,$event)"> B {{tests[currentTest].data[1].optionB}}-->
-<!--        </label>-->
-<!--        <label for="optionC" :class="{active:tests[currentTest].active}">-->
-<!--          <input type="checkbox" name="test" id="optionC" @click="checkClick(tests,currentTest,$event)"> C {{tests[currentTest].data[2].optionC}}-->
-<!--        </label>-->
-<!--        <label for="optionD" :class="{active:tests[currentTest].active}">-->
-<!--          <input type="checkbox" name="test" id="optionD" @click="checkClick(tests,currentTest,$event)"> D {{tests[currentTest].data[3].optionD}}-->
-<!--        </label>-->
+        <label for="optionA" :class="{labActive:test.data[0].state}">
+          <input type="checkbox" id="optionA"
+                 :checked="test.data[0].state"
+                 @click="checkClick(index=0,$event)"> A {{test.data[0].detail}}
+        </label>
+        <label for="optionB" :class="{labActive:test.data[1].state}">
+          <input type="checkbox"  id="optionB"
+                 :checked="test.data[1].state"
+                 @click="checkClick(index=1,$event)"> B {{test.data[1].detail}}
+        </label>
+        <label for="optionC" :class="{labActive:test.data[2].state}">
+          <input type="checkbox"  id="optionC"
+                 :checked="test.data[2].state"
+                 @click="checkClick(index=2,$event)"> C {{test.data[2].detail}}
+        </label>
+        <label for="optionD" :class="{labActive:test.data[3].state}">
+          <input type="checkbox"  id="optionD"
+                 :checked="test.data[3].state"
+                 @click="checkClick(index=3,$event)"> D {{test.data[3].detail}}
+        </label>
       </form>
     </div>
   </div>
@@ -40,42 +35,22 @@ export default {
   name: "testBody",
   data(){
     return{
-      value:'',
-      cTest:'',
     }
   },
   props:{
-    tests:{
-      type:Array,
+    test:{
+      type:Object,
       default:'',
-    },
-    currentTest:{
-      type:Number,
-      default:0,
     }
   },
   methods:{
-    checkClick(tests,currentTest,event){
-      tests[currentTest].active = event.target.checked
+    checkClick(index,event){
+        this.test.data[index].state= event.target.checked
     },
-    getOption(index){
-      if(index===0){
-        return 'A'
-      }else if(index===1){
-        return 'B'
-      }else if(index===2){
-        return 'C'
-      }else if(index===3){
-        return 'D'
-      }
-    },
-    testFor(index,test){
 
-    },
   },
-  computed:{
 
-  }
+
 }
 </script>
 
@@ -114,7 +89,7 @@ export default {
   background: rgba(0, 128, 0, 0.73);
   color:white;
 }
-.active{
+.labActive{
   background: rgba(0, 128, 0, 0.73);
   color:white;
 }
