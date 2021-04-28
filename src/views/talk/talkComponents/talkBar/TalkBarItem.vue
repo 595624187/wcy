@@ -1,6 +1,6 @@
 <template>
   <div class="talkBarItem">
-    <ul>
+    <ul @click="talkChose(id)">
       <li>{{theme.theme}}</li>
       <li>{{theme.creator}}</li>
       <li>{{theme.time}}</li>
@@ -17,6 +17,16 @@ export default {
     theme:{
       type:Object,
       default:'',
+    },
+    id:{
+      type:Number,
+      default:'',
+    }
+  },
+  methods:{
+    talkChose(id){
+      console.log(id)
+      this.$router.replace('/talkIndex')
     }
   }
 }

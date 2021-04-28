@@ -1,5 +1,4 @@
 <template>
-
   <div class="testHead">
     <div class="testTitle">
       <h2>测试题</h2>
@@ -14,8 +13,10 @@
       </ul>
     </div>
     <div class="testRight">
-      <button>提交</button>
+      <button @click="btnClick1">上一题</button>
       <button @click="btnClick">下一题</button>
+      <button style="visibility: hidden">隐藏</button>
+      <button>提交</button>
     </div>
   </div>
 </template>
@@ -40,6 +41,9 @@ export default {
   methods:{
     btnClick(){
       this.$emit('btnClick')
+    },
+    btnClick1(){
+      this.$emit('btnClick1')
     },
     liClick(index){
       this.$emit('testChange',index)

@@ -3,27 +3,27 @@
     <div class="testContent">
       <form action="" :key="test.index">
         <span>{{test.index}}.(
-          {{test.type}}){{test.title}}
+          {{getType(test.type)}}){{test.title}}
         </span>
         <label for="optionA" :class="{labActive:test.data[0].state}">
           <input type="checkbox" id="optionA"
                  :checked="test.data[0].state"
-                 @click="checkClick(index=0,$event)"> A {{test.data[0].detail}}
+                 @click="checkClick(index=0,test.type,$event)"> A {{test.data[0].detail}}
         </label>
         <label for="optionB" :class="{labActive:test.data[1].state}">
           <input type="checkbox"  id="optionB"
                  :checked="test.data[1].state"
-                 @click="checkClick(index=1,$event)"> B {{test.data[1].detail}}
+                 @click="checkClick(index=1,test.type,$event)"> B {{test.data[1].detail}}
         </label>
         <label for="optionC" :class="{labActive:test.data[2].state}">
           <input type="checkbox"  id="optionC"
                  :checked="test.data[2].state"
-                 @click="checkClick(index=2,$event)"> C {{test.data[2].detail}}
+                 @click="checkClick(index=2,test.type,$event)"> C {{test.data[2].detail}}
         </label>
         <label for="optionD" :class="{labActive:test.data[3].state}">
           <input type="checkbox"  id="optionD"
                  :checked="test.data[3].state"
-                 @click="checkClick(index=3,$event)"> D {{test.data[3].detail}}
+                 @click="checkClick(index=3,test.type,$event)"> D {{test.data[3].detail}}
         </label>
       </form>
     </div>
@@ -43,9 +43,29 @@ export default {
       default:'',
     }
   },
+  computed:{
+    getType(){
+      return function(type){
+        if(type==='simple'){
+          return '单选'
+        }else if(type==='multiple'){
+          return '多选'
+        }
+      }
+    }
+  },
   methods:{
-    checkClick(index,event){
+    checkClick(index,type,event){
+      if(type==='multiple'){
         this.test.data[index].state= event.target.checked
+      }else if(type==='simple'){
+        for(let i=0;i<this.test.data.length;i++){
+          if(i===index)
+            this.test.data[index].state= event.target.checked
+          else
+            this.test.data[i].state = false
+        }
+      }
     },
 
   },

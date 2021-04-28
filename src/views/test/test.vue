@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import testMain from "@/components/content/test/testMain";
+import testMain from "@/views/test/testComponents/testMain";
 export default {
   name: "test",
   components:{

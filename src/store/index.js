@@ -75,7 +75,7 @@ const state = {
         }
     ],
     user:{
-        name:'',
+        name:'未登录',
         pwd:'',
     },
     userState:'登录',

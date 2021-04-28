@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import homeDetail from "@/components/content/home/homeDetail";
-import homeCalendar from "@/components/content/home/homeCalendar";
-import homeWeather from "@/components/content/home/homeWeather";
-import homeRec from "@/components/content/home/homeRec";
+import homeDetail from "@/views/home/homeComponents/homeDetail";
+import homeCalendar from "@/views/home/homeComponents/homeCalendar";
+import homeWeather from "@/views/home/homeComponents/homeWeather";
+import homeRec from "@/views/home/homeComponents/homeRec";
 export default {
   name: "home",
   components:{

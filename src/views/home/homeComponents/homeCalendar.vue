@@ -4,14 +4,32 @@
     <h2>Calendar</h2>
     </div>
     <div class="c-body">
-
+      <p>{{data}}</p>
     </div>
   </div>
 </template>
 
 <script>
+import {getData} from "@/network/index";
+
 export default {
-  name: "homeCalendar"
+  name: "homeCalendar",
+  data(){
+    return{
+      data:''
+    }
+  },
+
+  created(){
+    this.getData()
+  },
+  methods:{
+    getData(){
+      getData().then(res=>{
+        this.data=res
+      })
+    }
+  },
 }
 </script>
 

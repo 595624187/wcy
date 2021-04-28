@@ -2,7 +2,7 @@
   <div class="homeDetail">
     <div id="homeLeft">
       <img src="~assets/img/touxiang.png" alt="">
-      <h2>用户</h2>
+      <h2>{{ this.$store.state.user.name }}</h2>
     </div>
     <div id="homeRight">
       <div class="h-detail">

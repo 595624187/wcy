@@ -3,14 +3,15 @@
     <test-head :tests="tests"
                :currentTest="currentTest"
                @btnClick="btnClick"
+               @btnClick1="btnClick1"
                @testChange="testChange"></test-head>
     <test-body :test="tests[currentTest]"></test-body>
   </div>
 </template>
 
 <script>
-import testHead from "@/components/content/test/testHead";
-import testBody from "@/components/content/test/testBody";
+import testHead from "@/views/test/testComponents/testHead";
+import testBody from "@/views/test/testComponents/testBody";
 export default {
   name: "testMain",
   components:{
@@ -68,7 +69,7 @@ export default {
         },
         {
           index:3,
-          type:'multiple',
+          type:'simple',
           title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
           data:[
             {
@@ -91,7 +92,7 @@ export default {
         },
         {
           index:4,
-          type:'multiple',
+          type:'simple',
           title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
           data:[
             {
@@ -260,6 +261,13 @@ export default {
         this.currentTest++
       }else{
         this.currentTest=0
+      }
+    },
+    btnClick1(){
+      if(this.currentTest>0){
+        this.currentTest--
+      }else{
+        this.currentTest=this.tests.length-1
       }
     },
     testChange(index){

@@ -3,7 +3,7 @@
     <ul class="ppt-con" @click="ulClick(itemfiles.name)"
     :class="{activeStyle:itemfiles.name === this.currentFile}">
       <li>{{itemfiles.name}}</li>
-      <li>{{itemfiles.user}}</li>
+      <li>{{this.$store.state.user.name}}</li>
       <li>{{itemfiles.time}}</li>
       <li>{{itemfiles.num}}</li>
     </ul>

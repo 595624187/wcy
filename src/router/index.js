@@ -6,6 +6,8 @@ const ppt = () => import('@/views/ppt/ppt')
 const talk = () => import('@/views/talk/talk')
 const test = () => import('@/views/test/test')
 const login = () => import('@/components/common/login/Login')
+const talkOut = () => import('@/views/talk/talkComponents/talkOut/TalkOut')
+const talkIndex = () => import('@/views/talk/talkComponents/talkOut/TalkIndex')
 Vue.use(VueRouter)
 const routes=[
     {
@@ -35,6 +37,14 @@ const routes=[
     {
         path:'/login',
         component:login
+    },
+    {
+        path:'/talkOut',
+        component:talkOut
+    },
+    {
+        path:'/talkIndex',
+        component:talkIndex
     }
 
 ]

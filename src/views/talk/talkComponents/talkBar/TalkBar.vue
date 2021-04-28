@@ -14,7 +14,7 @@
       </ul>
     </div>
     <div class="talkBody" v-for="theme in themes" >
-      <talk-bar-item :theme="theme"></talk-bar-item>
+      <talk-bar-item :theme="theme" :id="theme.id"></talk-bar-item>
     </div>
   </div>
   <div class="talkBtn">
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import TalkBarItem from "@/components/content/talkBar/TalkBarItem";
+import TalkBarItem from "@/views/talk/talkComponents/talkBar/TalkBarItem";
 export default {
   name: "TalkBar",
   components:{
@@ -38,24 +38,38 @@ export default {
           creator:'用户1',
           time:'2021/02/04',
           up:'1.56k',
-          click:'2.4w'
+          click:'2.4w',
+          id:0,
+        },
+        {
+          theme:'我是主题1',
+          creator:'用户111',
+          time:'2021/02/04',
+          up:'3.32k',
+          click:'2.1w',
+          id:1,
         },
         {
           theme:'我是主题2',
           creator:'用户2',
           time:'2021/12/04',
           up:'2.56k',
-          click:'4.4w'
+          click:'4.4w',
+          id:2,
         },
         {
           theme:'我是主题3',
           creator:'用户3',
           time:'2021/07/23',
           up:'0.56k',
-          click:'8.4w'
+          click:'8.4w',
+          id:3,
         }
-           ]
+      ]
     }
+  },
+  methods:{
+
   }
 }
 </script>
@@ -89,6 +103,7 @@ export default {
   width: 20%;
 }
 .talkBody{
+  padding-top:5px;
 }
 .talkText{
   height:50%;
