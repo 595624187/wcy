@@ -20,6 +20,9 @@ export default {
     homeWeather,
     homeRec,
   },
+  methods:{
+
+  }
 }
 </script>
 

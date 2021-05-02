@@ -1,7 +1,7 @@
 <template>
   <div class="talkBarItem">
     <ul @click="talkChose(id)">
-      <li>{{theme.theme}}</li>
+      <li>{{theme.title}}</li>
       <li>{{theme.creator}}</li>
       <li>{{theme.time}}</li>
       <li>{{theme.up}}</li>
@@ -25,8 +25,7 @@ export default {
   },
   methods:{
     talkChose(id){
-      console.log(id)
-      this.$router.replace('/talkIndex')
+      this.$router.push({path:'/talkIndex',query:{id:id,isReadonly:true}})
     }
   }
 }

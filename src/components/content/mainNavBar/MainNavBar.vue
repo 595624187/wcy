@@ -30,7 +30,7 @@ export default {
       if(this.$store.state.userState=='登录'){
         this.$router.replace('/login')
       }else{
-        this.$store.state.user.name=''
+        this.$store.state.user.name='未登录'
         this.$store.state.user.pwd=''
         this.$store.state.userState='登录'
       }

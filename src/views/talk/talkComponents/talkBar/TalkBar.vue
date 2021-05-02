@@ -32,40 +32,7 @@ export default {
   },
   data(){
     return{
-      themes:[
-        {
-          theme:'我是主题1',
-          creator:'用户1',
-          time:'2021/02/04',
-          up:'1.56k',
-          click:'2.4w',
-          id:0,
-        },
-        {
-          theme:'我是主题1',
-          creator:'用户111',
-          time:'2021/02/04',
-          up:'3.32k',
-          click:'2.1w',
-          id:1,
-        },
-        {
-          theme:'我是主题2',
-          creator:'用户2',
-          time:'2021/12/04',
-          up:'2.56k',
-          click:'4.4w',
-          id:2,
-        },
-        {
-          theme:'我是主题3',
-          creator:'用户3',
-          time:'2021/07/23',
-          up:'0.56k',
-          click:'8.4w',
-          id:3,
-        }
-      ]
+      themes:this.$store.state.themes
     }
   },
   methods:{

@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import PptContentItem from "@/components/content/pptComponents/PptContentItem";
+import PptContentItem from "@/views/ppt/pptComponents/PptContentItem";
 export default {
   name: "PptContent",
   data(){

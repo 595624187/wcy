@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import PptMenu from "@/components/content/pptComponents/PptMenu";
-import PptContent from "@/components/content/pptComponents/PptContent";
+import PptMenu from "@/views/ppt/pptComponents/PptMenu";
+import PptContent from "@/views/ppt/pptComponents/PptContent";
 export default {
   name: "Ppt",
   components:{

@@ -25,7 +25,7 @@ export default {
   },
   methods:{
     getData(){
-      getData().then(res=>{
+      this.$axios.get('http://123.207.32.32:8000/home/multidata').then(res=>{
         this.data=res
       })
     }
