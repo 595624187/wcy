@@ -5,10 +5,10 @@
         <span @click="upClick">👍{{this.$store.state.themes[currentId].up}}</span>
         <span @click="downClick">👎{{this.$store.state.themes[currentId].down}}</span>
         <button @click="back">返回</button>
-        <button>评论</button>
+        <button @click="addCom">评论</button>
       </div>
       <div class="talk-content" slot="talk-content">
-        <talk-content-item></talk-content-item>
+        <talk-content></talk-content>
       </div>
     </talk-index-item>
 
@@ -17,7 +17,7 @@
 
 <script>
 import TalkIndexItem from "@/views/talk/talkComponents/talkOut/TalkIndexItem";
-import TalkContentItem from "@/views/talk/talkComponents/talkOut/TalkContentItem";
+import TalkContent from "@/views/talk/talkComponents/talkContent/TalkContent";
 export default {
   name: "TalkIndex",
   data(){
@@ -33,7 +33,7 @@ export default {
   },
   components:{
     TalkIndexItem,
-    TalkContentItem
+    TalkContent
   },
   methods:{
     back(){
@@ -44,6 +44,9 @@ export default {
     },
     downClick(){
       this.$store.state.themes[this.currentId].down++
+    },
+    addCom(){
+      
     }
   },
   created() {
@@ -64,7 +67,12 @@ export default {
   justify-content: flex-end;
 }
 #talk-menu span{
-  display: flex;
-  padding:20px 20px 0 20px;
+  width: 60px;
+  height:35px;
+  text-align: center;
+  line-height: 35px;
+}
+#talk-menu span:hover{
+  cursor:pointer;
 }
 </style>

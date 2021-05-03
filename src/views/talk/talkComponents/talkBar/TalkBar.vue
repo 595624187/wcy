@@ -71,10 +71,13 @@ export default {
 }
 .talkBody{
   padding-top:5px;
+
 }
 .talkText{
-  height:50%;
+  height:58%;
+  overflow-y: scroll;
 }
+::-webkit-scrollbar {display:none}
 .talkBtn{
   position: relative;
   left:80%;

@@ -5,6 +5,7 @@
       <input type="text"
              id="talk-title"
              placeholder="请输入主题"
+             v-model="title"
              >
       <h3 id="des">描述：</h3>
       <textarea name="talk-des"
@@ -12,13 +13,14 @@
                 cols="30"
                 rows="10"
                 placeholder="请输入描述"
+                v-model="text"
                 ></textarea>
     </div>
       <div slot="talk-menu">
         <ul>
           <li><button @click="liBack">返回</button></li>
-          <li><button>保存</button></li>
-          <li><button>发布</button></li>
+          <li style="display:none"><button>保存</button></li>
+          <li><button @click="talkUp">发布</button></li>
         </ul>
       </div>
 
@@ -30,9 +32,28 @@ export default {
   name: "TalkOut",
   components:{
   },
+  data(){
+    return{
+      title:'',
+      text:'',
+    }
+  },
   methods:{
     liBack(){
       this.$router.replace('/talk')
+    },
+    talkUp(){
+     let theme = {
+       title:this.title,
+       content:this.text,
+       creator:'用户000',
+       time:new Date().toLocaleTimeString(),
+       up:0,
+       down:0,
+       click:0,
+       id:4
+     }
+    this.$store.state.themes.unshift(theme)
     }
   }
 }

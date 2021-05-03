@@ -33,7 +33,6 @@ export default {
 
 <style scoped>
 .talkBarItem{
-
 }
 .talkBarItem ul{
   width: 100%;
@@ -45,6 +44,7 @@ export default {
   font-size: 20px;
   margin:5px 0 5px 0;
 }
+
 .talkBarItem li{
   width: 20%;
 }

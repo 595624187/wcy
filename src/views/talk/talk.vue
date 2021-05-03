@@ -26,7 +26,7 @@ export default {
   },
   methods:{
     talkBtn(){
-      this.$router.replace('/talkOut')
+      this.$router.push('/talkOut')
     }
 
   }
