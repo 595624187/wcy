@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import LearnVideo from "@/components/content/learnVideo/LearnVideo";
+import LearnVideo from "@/views/learn/learnVideo/LearnVideo";
 import Collapse from "@/components/common/Collapse";
 export default {
   name: "learn",

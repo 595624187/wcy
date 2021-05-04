@@ -5,7 +5,7 @@ const learn = () => import('@/views/learn/learn')
 const ppt = () => import('@/views/ppt/ppt')
 const talk = () => import('@/views/talk/talk')
 const test = () => import('@/views/test/test')
-const login = () => import('@/components/common/login/Login')
+const login = () => import('@/views/user/login/Login')
 const talkOut = () => import('@/views/talk/talkComponents/talkOut/TalkOut')
 const talkIndex = () => import('@/views/talk/talkComponents/talkOut/TalkIndex')
 const user = () => import('@/views/user/user')
@@ -41,7 +41,7 @@ const routes=[
     },
     {
         path:'/user/:id',
-        component:user
+        component:user,
     },
     {
         path:'/talkOut',
@@ -50,7 +50,8 @@ const routes=[
     {
         path:'/talkIndex',
         component:talkIndex
-    }
+    },
+
 ]
 
 const router = new VueRouter({

@@ -54,6 +54,7 @@ export default {
 }
 .ppt-content-item ul:hover{
   background: rgba(215, 231, 229, 0.54);
+  cursor: pointer;
 }
 
 .ppt-con li:first-child{

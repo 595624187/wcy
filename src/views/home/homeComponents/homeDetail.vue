@@ -2,13 +2,13 @@
   <div class="homeDetail">
     <div id="homeLeft">
       <img src="~assets/img/touxiang.png" alt="">
-      <h2>{{ this.$store.state.user.name }}</h2>
+      <h2>{{$store.state.user.name }}</h2>
     </div>
     <div id="homeRight">
       <div class="h-detail">
         <h2>用户描述，可JFK撒旦艰苦分类</h2>
       </div>
-      <dProgress :percentage="num"  status="success" :text-inside="true"  :stroke-height="20"/>
+      <dProgress :percentage="$store.state.user.progress"  status="success" :text-inside="true"  :stroke-height="20"/>
       <span>学习进度</span>
     </div>
   </div>
@@ -23,21 +23,12 @@ export default {
   },
   data(){
     return{
-      num:this.$store.state.progress.num,
     }
   },
   created() {
 
   },
-  // mounted() {
-  //   if(this.num<50){
-  //     this.status="none"
-  //   }else if(this.num<75){
-  //     this.status="success"
-  //   }else{
-  //     this.status="failure"
-  //   }
-  // }
+
 
 }
 </script>
@@ -48,7 +39,7 @@ export default {
   height: 185px;
   margin-left:50px;
   border-radius:10px;
-  background: pink;
+  background: #d1efd5;
   margin-top:20px;
 }
 #homeLeft{

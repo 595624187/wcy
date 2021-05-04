@@ -30,7 +30,7 @@ export default {
     btnLogin(){
       this.$store.state.user.name=this.name
       this.$store.state.user.pwd=this.pwd
-      this.$store.state.userState='退出'
+      this.$store.state.user.state='退出'
       this.$router.replace('/home')
     }
   }

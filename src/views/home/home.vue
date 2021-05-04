@@ -3,7 +3,6 @@
     <home-detail></home-detail>
     <home-calendar></home-calendar>
     <home-weather></home-weather>
-    <home-rec></home-rec>
   </div>
 </template>
 
@@ -11,14 +10,12 @@
 import homeDetail from "@/views/home/homeComponents/homeDetail";
 import homeCalendar from "@/views/home/homeComponents/homeCalendar";
 import homeWeather from "@/views/home/homeComponents/homeWeather";
-import homeRec from "@/views/home/homeComponents/homeRec";
 export default {
   name: "home",
   components:{
     homeDetail,
     homeCalendar,
     homeWeather,
-    homeRec,
   },
   methods:{
 

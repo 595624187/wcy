@@ -108,7 +108,7 @@ export default {
   border:1px green solid;
   border-radius: 5px;
   margin-left:40px;
-  background: #e7e1e1;
+  background: #c9eaea;
 }
 .testRight{
   width:250px;

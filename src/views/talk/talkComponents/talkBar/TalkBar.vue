@@ -45,7 +45,7 @@ export default {
 .talkBar{
   width:870px;
   height:350px;
-  background: #F0E1E1;
+  background: rgba(135, 206, 235, 0.27);
   margin:40px 0 0 65px;
 }
 
@@ -77,7 +77,6 @@ export default {
   height:58%;
   overflow-y: scroll;
 }
-::-webkit-scrollbar {display:none}
 .talkBtn{
   position: relative;
   left:80%;

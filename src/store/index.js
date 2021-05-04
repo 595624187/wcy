@@ -75,14 +75,21 @@ const state = {
         }
     ],
     user:{
-        name:'未登录',
+        id:88,
+        name:'user001',
         pwd:'',
+        state:'未登录',
+        sex:'男',
+        age:18,
+        city:'武汉',
+        work:'学生',
+        detail:'我是你发生了快点放假啊克里斯蒂，' +
+            '阿萨的开发吉萨独立开发就拉萨的飞机啊圣诞快乐房价萨科，' +
+            '阿斯顿发吉萨大JFK拉萨到家乐福撒扩大富士达范德萨，' +
+            '爱的色放就拉省的艰苦拉萨解放的',
+        progress:60,
     },
-    userState:'登录',
-    progress:{
-        num:55,
-        status:'',
-    },
+
     themes:[
         {
             title:'我是主题1',

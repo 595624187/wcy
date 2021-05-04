@@ -42,10 +42,14 @@ export default {
   justify-content: space-around;
   text-align: center;
   font-size: 20px;
-  margin:5px 0 5px 0;
+  padding: 4px;
 }
 
 .talkBarItem li{
   width: 20%;
+}
+.talkBarItem ul:hover{
+  background:rgba(215, 231, 229, 0.54);
+  cursor:pointer;
 }
 </style>

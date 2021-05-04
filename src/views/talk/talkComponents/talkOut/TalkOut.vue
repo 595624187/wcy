@@ -76,7 +76,7 @@ export default {
 
 .talk-content{
   width:100%;
-  height:50%;
+  height:400px;
 }
 .talk-content h3{
   width:100px;

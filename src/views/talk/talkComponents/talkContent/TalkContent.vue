@@ -75,11 +75,13 @@ export default {
 <style scoped>
 .talk-content{
   width:600px;
-  height:1000px;
+  height:400px;
   border:2px #4ac64a solid;
   border-radius: 5px;
   padding: 10px;
+  overflow-y: scroll;
 }
+
 .talk-add{
   height:100px;
   padding-bottom: 5px;
@@ -87,11 +89,15 @@ export default {
 .talk-add textarea{
   outline: none;
   resize:none;
+  height:90px;
   padding-top:5px;
   padding-left:5px;
 }
 .talk-add button{
   position: relative;
   top:-40px;
+  width:60px;
+  height:40px;
+  font-size:16px;
 }
 </style>

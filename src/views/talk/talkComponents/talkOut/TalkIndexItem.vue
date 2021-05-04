@@ -51,11 +51,11 @@ export default {
 .talkOut{
   width:1000px;
   height:900px;
-  padding:100px 230px 0 180px;
+  padding:50px 230px 0 180px;
 }
 .talk-content{
   width:100%;
-  height:50%;
+  height:380px;
 }
 .talk-content h3{
   width:100px;

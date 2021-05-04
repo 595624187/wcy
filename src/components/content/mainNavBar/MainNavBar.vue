@@ -1,20 +1,20 @@
 <template>
   <main-nav>
     <div slot="user-img" class="user-img">
-      <img src="~assets/img/touxiang.png" alt="">
+      <a @click="userClick"><img src="~assets/img/touxiang.png" alt=""></a>
     </div>
     <div slot="user-name" class="user-name">
-      <span>{{this.$store.state.user.name}}</span>
+      <span>{{user.name}}</span>
     </div>
     <div slot="user-state" class="user-state">
-      <span @click="login">{{this.$store.state.userState}}</span>
+      <span @click="login">{{user.state}}</span>
     </div>
   </main-nav>
 </template>
 
 <script>
 import MainNav from "@/components/common/mainNav/MainNav";
-import Login from "@/components/common/login/Login";
+import Login from "@/views/user/login/Login";
 export default {
   name: "MainNavBar",
   components:{
@@ -25,16 +25,23 @@ export default {
     return{
     }
   },
+  created(){
+    this.user = this.$store.state.user
+  },
   methods:{
     login(){
-      if(this.$store.state.userState=='登录'){
+      if(this.user.state==='未登录'){
         this.$router.replace('/login')
       }else{
-        this.$store.state.user.name='未登录'
-        this.$store.state.user.pwd=''
-        this.$store.state.userState='登录'
+        this.user.state='未登录'
+        this.user.name='user001'
       }
+    },
+    userClick(){
+      this.$router.push({path:'/user/'+this.user.id,params:{currentUser:this.user.id}})
     }
+
+
   },
 
 }
