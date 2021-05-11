@@ -1,11 +1,21 @@
 <template>
-  <div class="talk-content">
-    <div class="talk-add">
-        <textarea name="talk" cols="55" rows="5" v-model="notedata"></textarea>
-        <button @click="addCom">发布</button>
+  <div class="talk-com">
+    <div class="talk-add" :class="{hide:!this.isHidden}">
+        <textarea v-model="notedata"></textarea>
+        <button @click="addCom" >发布</button>
     </div>
-    <div class="talk-content-item" v-for="(talk,index) in talkMsg">
-      <talk-content-item :talkMsg="talkMsg[index]"></talk-content-item>
+    <div class="talk-context">
+      <div class="talk-content-item" v-for="(talk,index) in talkMsg">
+          <talk-content-item :talkMsg="talkMsg[index]"
+                             @addRecom="addCom"
+                             @addReply="addRep"
+
+          ></talk-content-item>
+      </div>
+    </div>
+    <div class="talk-replay" :class="{hide:!this.isHidden1}">
+      <textarea cols="55" rows="5" v-model="replaydata"></textarea>
+      <button @click="subRep">回复</button>
     </div>
   </div>
 </template>
@@ -19,85 +29,139 @@ export default {
   },
   data(){
     return{
-      talkMsg:[
-        {
-          id:1,
-          user:'用户1',
-          text:'不错，真不错,ajdfklasdjf的方式就是的发生第撒旦反抗拉萨酱豆腐绿卡' +
-              '首都卡拉飞机拉萨扩大解放立刻撒旦解放' +
-              '阿斯顿发射点撒旦解放昆仑山搭街坊卡拉吉萨大三方',
-          date:'2021/5/2',
-          up:23,
-          down:2,
-        },
-        {
-          id:2,
-          user:'用户2',
-          text:'adsaf，d,ajdfklasdjf的方式就是的发生第三方',
-          date:'2021/3/12',
-          up:123,
-          down:12,
-        },
-        {
-          id:3,
-          user:'用户3',
-          text:'洒洒水，真不错,ajdfklasdjf的方式就是的发生第三方',
-          date:'2020/6/21',
-          up:43,
-          down:3,
-        },
-        {
-          id:4,
-          user:'用户4',
-          text:'灌灌灌灌，真不错,ajdfklasdjf的方式就是的发生第三方',
-          date:'2018/1/5',
-          up:55,
-          down:1,
-        }
-      ],
+      talkMsg:'',
       notedata:null,
+      replaydata:null,
+      id:'',
+      isHidden1:'',
     }
   },
-  methods:{
-    addCom(){
-      let com = {}
-      com.user='用户000'
-      com.text= this.notedata
-      com.date = (new Date()).toLocaleDateString()+" "+(new Date()).toLocaleTimeString()
-      com.up=0
-      com.down=0
-      this.talkMsg. unshift(com)
+  created(){
+    this.talkMsg=this.$store.state.talkMsg
+  },
+  props:{
+    isHidden:{
+      type:Boolean,
+      default:''
+    },
+
+  },
+  methods: {
+    getDate(date) {
+      var y = date.getFullYear();
+      var m = date.getMonth() + 1;
+      m = m < 10 ? ('0' + m) : m;
+      var d = date.getDate();
+      d = d < 10 ? ('0' + d) : d;
+      var h = date.getHours();
+      h = h < 10 ? ('0' + h) : h;
+      var minute = date.getMinutes();
+      minute = minute < 10 ? ('0' + minute) : minute;
+      var second = date.getSeconds();
+      second = second < 10 ? ('0' + second) : second;
+      return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;
+    },
+    addCom() {
+      if (this.notedata) {
+        let com = {}
+        com.id = this.$store.state.currentMsgId++
+        com.user = this.$store.state.currentUser.user_name
+        com.text = this.notedata
+        com.date = this.getDate(new Date())
+        com.up = 0
+        com.down = 0
+        this.talkMsg.unshift(com)
+        this.notedata = ''
+      }
+
+    },
+    addRep(id) {
+      if (this.isHidden1) {
+        this.id = ''
+        this.isHidden1 = false;
+      } else {
+        this.id = id
+        this.isHidden1 = true;
+      }
+    },
+    subRep() {
+      if (this.replaydata) {
+        let msg = ''
+        for (let temp of this.$store.state.talkMsg) {
+          if (temp.id === this.id) {
+            msg = temp
+          }
+        }
+        let index = this.$store.state.talkMsg.indexOf(msg)
+        let com = {}
+        com.id = this.$store.state.currentMsgId++
+        com.user = this.$store.state.currentUser.user_name
+        com.text = this.replaydata
+        com.date = this.getDate(new Date())
+        com.to = msg.user
+        com.up = 0
+        com.down = 0
+        this.talkMsg.splice(index + 1, 0, com)
+        this.isHidden1 = false
+        this.replaydata = ''
+        this.isHidden = false
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-.talk-content{
-  width:600px;
-  height:400px;
+.talk-com{
+  width: 744px;
+  height:600px;
   border:2px #4ac64a solid;
   border-radius: 5px;
   padding: 10px;
-  overflow-y: scroll;
+  position: relative;
+  top: 74px;
+  right: 280px;
+  background: white;
 }
+.talk-context{
+  overflow-y: scroll;
+  height:450px;
 
+}
 .talk-add{
-  height:100px;
+  height:65px;
   padding-bottom: 5px;
 }
 .talk-add textarea{
   outline: none;
   resize:none;
-  height:90px;
+  height:60px;
+  width:630px;
   padding-top:5px;
   padding-left:5px;
+  font-family: 微软雅黑;
 }
 .talk-add button{
   position: relative;
-  top:-40px;
+  top:-20px;
   width:60px;
   height:40px;
   font-size:16px;
+}
+.hide{
+  visibility: hidden;
+}
+.talk-replay{
+  height: 65px;
+}
+.talk-replay textarea{
+  width:630px;
+  height:64px;
+}
+.talk-replay button{
+  position: relative;
+  top:-18px;
+  width:60px;
+  height:40px;
 }
 </style>

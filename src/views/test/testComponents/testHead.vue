@@ -1,7 +1,7 @@
 <template>
   <div class="testHead">
     <div class="testTitle">
-      <h2>测试题</h2>
+      <h2>{{ this.title }}</h2>
     </div>
     <div class="testLeft" >
       <ul>
@@ -15,9 +15,13 @@
     <div class="testRight">
       <button @click="btnClick1">上一题</button>
       <button @click="btnClick">下一题</button>
-      <button style="visibility: hidden">隐藏</button>
-      <button>提交</button>
+      <button @click="backClick">返回</button>
+      <button @click="testSub">提交</button>
+      <div class="msg">
+        <span style="color:red;font-family: 微软雅黑;">{{ this.msg }}</span>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -32,10 +36,19 @@ export default {
     currentTest: {
       type:Number,
       default:0,
+    },
+    title:{
+      type:String,
+      default:'',
+    },
+    listId:{
+      type:Number,
+      default:'',
     }
   },
   data(){
     return{
+      msg:''
     }
   },
   methods:{
@@ -46,7 +59,34 @@ export default {
       this.$emit('btnClick1')
     },
     liClick(index){
+
       this.$emit('testChange',index)
+    },
+    backClick(){
+      this.$router.replace('/test')
+    },
+    testSub(){
+      let flag = true
+      let index = ''
+      for(let test of this.tests){
+        if(this.getStatu(test)){
+          flag=true
+        }else{
+          flag=false
+          index = this.tests.indexOf(test)+1
+          break
+        }
+      }
+      if(flag){
+        for(let temp of this.$store.state.lists){
+          if(temp.id===this.listId){
+            temp.state='完成'
+            this.$router.replace('/test')
+          }
+        }
+      }else{
+        this.msg=index+'未填写,请完成后再提交'
+      }
     }
   },
   computed:{
@@ -89,8 +129,8 @@ export default {
   color: white;
 }
 .testHead .liActive{
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .testHead .finished{
   background: rgba(0, 128, 0, 0.73);
@@ -102,18 +142,22 @@ export default {
   margin:30px 0 30px 0 ;
 }
 .testLeft{
-  width:700px;
+  width:1000px;
   height: 135px;
   float:left;
-  border:1px green solid;
+  box-shadow:2px 2px 10px #909090;
   border-radius: 5px;
-  margin-left:40px;
+  margin-left:100px;
   background: #c9eaea;
 }
 .testRight{
   width:250px;
   height:120px;
   float:right;
-  padding-top:30px;
+  position: relative;
+  right:80px;
+}
+.testTitle h2{
+  font-family: 微软雅黑;
 }
 </style>

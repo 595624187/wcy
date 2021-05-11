@@ -6,15 +6,15 @@
   <div class="talkText">
     <div class="talkHead">
       <ul>
-        <li>主题</li>
+        <li id="zhuti">主题</li>
         <li>创建人</li>
         <li>时间</li>
         <li>点赞量</li>
         <li>点击量</li>
       </ul>
     </div>
-    <div class="talkBody" v-for="theme in themes" >
-      <talk-bar-item :theme="theme" :id="theme.id"></talk-bar-item>
+    <div class="talkBody">
+      <talk-bar-item  v-for="theme in themes"  :theme="theme" :id="theme.id"></talk-bar-item>
     </div>
   </div>
   <div class="talkBtn">
@@ -30,56 +30,76 @@ export default {
   components:{
     TalkBarItem
   },
-  data(){
-    return{
-      themes:this.$store.state.themes
+  props:{
+    themes:{
+      type:Array,
+      default:'',
     }
   },
-  methods:{
+  data(){
+    return{
 
-  }
+    }
+  },
+
 }
 </script>
 
 <style scoped>
 .talkBar{
-  width:870px;
+  width:1450px;
   height:350px;
   background: rgba(135, 206, 235, 0.27);
-  margin:40px 0 0 65px;
+  border-radius: 8px;
+  margin:35px 0 0 25px;
+  font-size:20px;
+  font-family: 微软雅黑;
 }
 
+.talkHead{
+}
+.talkHead ul{
+  width: 100%;
+  display:flex;
+  height:40px;
+  list-style: none;
+  text-align: left;
+  font-size: 23px;
+  font-weight: bold;
+  font-family: 华文中宋;
+  background: #339981;
+  color:white;
+  line-height: 40px;
+}
+.talkHead li{
+  width: 20%;
+  text-align: left;
+}
+.talkHead #zhuti{
+  width: 50%;
+  padding-left:25px;
+}
+.talkBody{
+  padding-top:5px;
+  height:200px;
+  overflow-y:scroll;
+}
 .talkTitle{
   display: flex;
   justify-content: center;
   padding-top:18px;
   padding-bottom: 30px;
-}
-.talkHead ul{
-  width: 100%;
-  display:flex;
-  flex-direction: row;
-  list-style: none;
-  justify-content: space-around;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  font-family: 华文中宋;
-}
-.talkHead li{
-  width: 20%;
-}
-.talkBody{
-  padding-top:5px;
 
 }
+
 .talkText{
   height:58%;
-  overflow-y: scroll;
 }
 .talkBtn{
   position: relative;
-  left:80%;
+  left:90%;
+  top:-8px;
+  width:200px;
 }
 
 </style>

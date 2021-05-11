@@ -8,7 +8,7 @@
         <button @click="addCom">评论</button>
       </div>
       <div class="talk-content" slot="talk-content">
-        <talk-content></talk-content>
+        <talk-content :isHidden="isHidden"></talk-content>
       </div>
     </talk-index-item>
 
@@ -22,7 +22,8 @@ export default {
   name: "TalkIndex",
   data(){
     return{
-      currentId:0
+      currentId:0,
+      isHidden:false
     }
   },
   props:{
@@ -36,6 +37,7 @@ export default {
     TalkContent
   },
   methods:{
+
     back(){
       this.$router.replace('/talk')
     },
@@ -46,7 +48,11 @@ export default {
       this.$store.state.themes[this.currentId].down++
     },
     addCom(){
-      
+      if(!this.isHidden){
+        this.isHidden=true
+      }else{
+        this.isHidden=false
+      }
     }
   },
   created() {
@@ -59,7 +65,12 @@ export default {
 
 <style scoped>
 .talk-in{
-  height:800px;
+  width: 1500px;
+  height: 800px;
+  background: white;
+  margin:30px 0 0 30px;
+  box-shadow:2px 2px 10px #909090;
+  border-radius: 8px;
 }
 #talk-menu{
   display:flex;
@@ -74,5 +85,8 @@ export default {
 }
 #talk-menu span:hover{
   cursor:pointer;
+}
+.talk-content{
+  height: 0;
 }
 </style>

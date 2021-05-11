@@ -4,10 +4,10 @@
       <a @click="userClick"><img src="~assets/img/touxiang.png" alt=""></a>
     </div>
     <div slot="user-name" class="user-name">
-      <span>{{user.name}}</span>
+      <span style="color:white">{{this.$store.state.currentUser.user_name}}</span>
     </div>
     <div slot="user-state" class="user-state">
-      <span @click="login">{{user.state}}</span>
+      <span @click="login"><h3 style="color:white">{{this.$store.state.currentUser.state}}</h3></span>
     </div>
   </main-nav>
 </template>
@@ -23,19 +23,15 @@ export default {
   },
   data(){
     return{
+      user:{}
     }
   },
   created(){
-    this.user = this.$store.state.user
+    this.user = this.$store.state.currentUser
   },
   methods:{
     login(){
-      if(this.user.state==='未登录'){
         this.$router.replace('/login')
-      }else{
-        this.user.state='未登录'
-        this.user.name='user001'
-      }
     },
     userClick(){
       this.$router.push({path:'/user/'+this.user.id,params:{currentUser:this.user.id}})
@@ -50,6 +46,7 @@ export default {
 <style scoped>
 .user-img{
   position: relative;
+  width: 200px;
   left:70%;
   top:10px;
 }
@@ -60,6 +57,7 @@ export default {
 }
 .user-name{
   position: relative;
+  width:200px;
   left:80%;
   top:-58px;
   font-family: 微软雅黑;
@@ -69,6 +67,7 @@ export default {
 }
 .user-state{
   position: relative;
+  width:200px;
   left:80%;
   top:-48px;
   text-decoration: underline;

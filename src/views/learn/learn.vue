@@ -1,64 +1,59 @@
 <template>
-  <learn-video>
-    <div slot="learn-title">
-      {{movies[0].title}}
-    </div>
-    <div slot="learn-body">
-      <video
-      id="myVideo"
-      class="video-js vjs-default-skin vjs-big-play-centered"
-      controls
-
-      preload="auto"
-      ref="videoDemo"
-      >
-        <source src
-                type="video/mp4">
-      </video>
-    </div>
-    <div slot="video-button">
-      <collapse></collapse>
-    </div>
-  </learn-video>
+  <div class="learn">
+    <learn-main :movie="currentMovie"></learn-main>
+    <learn-choose
+        @child-choice="mvChoice"
+        :mvIndex="index"
+        :maxIndex="maxIndex"
+        :movies="movies"
+        @li-choice="mvChoice"
+     ></learn-choose>
+  </div>
 </template>
 
 <script>
-import LearnVideo from "@/views/learn/learnVideo/LearnVideo";
-import Collapse from "@/components/common/Collapse";
+import LearnMain from "./learnVideo/LearnMain";
+import LearnChoose from "./learnVideo/LearnChoose";
 export default {
   name: "learn",
   components:{
-    LearnVideo,
-    Collapse
+    LearnMain,
+    LearnChoose
   },
   props:{
 
   },
   data(){
     return{
-      videosorce:{
-        title:'aaa',
-        src:'',
-      },
-      movies:this.$store.state.movies,
-      t_src:require('../../assets/mp4/缘分一道桥.mp4'),
+      movies:[],
+      index:0,
+      currentMovie:{},
+      maxIndex:0,
     }
   },
   methods:{
-
+    mvChoice(data){
+      this.index=data
+      this.currentMovie=this.movies[this.index]
+    }
   },
-  mounted(){
-    this.$refs.videoDemo.src=this.t_src
-  },
 
-
-
-  computed:{
-
+  mounted() {
+    this.movies=this.$store.state.movies
+    this.currentMovie=this.movies[this.index]
+    this.maxIndex=this.movies.length
   }
+
 }
 </script>
 
 <style scoped>
-
+.learn{
+  width:1500px;
+  display:flex;
+  margin:30px 0 0 30px;
+  box-shadow:2px 2px 10px #909090;
+  border-radius: 8px;
+  background: snow;
+}
 </style>

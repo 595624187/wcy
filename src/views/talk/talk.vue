@@ -1,15 +1,15 @@
 <template>
   <div class="talk">
     <div class="talk-hot">
-      <TalkBar>
+      <TalkBar :themes="hotThemes">
         <h2 slot="talkTitle">热门主题</h2>
         <button slot="talkBtn" @click="talkBtn">发布主题</button>
       </TalkBar>
     </div>
     <div class="talk-rec">
-      <TalkBar>
+      <TalkBar :themes="recThemes">
         <h2 slot="talkTitle">推荐主题</h2>
-        <button slot="talkBtn">换一批</button>
+        <button slot="talkBtn" @click="changeNum">换一批</button>
       </TalkBar>
     </div>
   </div>
@@ -24,15 +24,61 @@ export default {
     TalkBar,
     TalkOut
   },
+  data(){
+    return{
+      hotThemes:'',
+      recThemes:'',
+    }
+  },
   methods:{
     talkBtn(){
       this.$router.push('/talkOut')
+    },
+    getRandom(){
+      let a = parseInt(Math.random()*10)%6
+      let nums = new Array(4)
+      nums[0]=a
+      let i = 0;
+      while(i<4){
+       let  flag = true
+       let b = parseInt(Math.random()*10)%6
+        for(let t of nums){
+          if (t === b){
+            flag=false
+          }
+        }
+        if(flag){
+          nums[++i]=b
+        }
+        }
+        return nums
+      },
+    changeNum(){
+      this.recThemes=new Array(4)
+      let arr = this.getRandom()
+      let i=0
+      for(let a of arr){
+        this.recThemes[i++]=this.$store.state.themes[a]
+      }
     }
 
+  },
+  created() {
+    this.hotThemes=this.$store.state.themes
+    this.changeNum()
   }
 }
 </script>
 
 <style scoped>
+.talk{
+  width:1500px;
+  height:800px;
+  margin:30px 0 0 30px;
+  padding-top:7px;
+  box-shadow:2px 2px 10px #909090;
+  border-radius: 8px;
+  background: snow;
+}
 
 </style>

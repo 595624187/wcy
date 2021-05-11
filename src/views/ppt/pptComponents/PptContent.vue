@@ -5,11 +5,11 @@
         <li id="file-name">文件名</li>
         <li>上传者</li>
         <li>上传时间</li>
-        <li>下载量</li>
+        <li id="last">下载量</li>
       </ul>
     </div>
     <div class="ppt-body">
-      <ppt-content-item v-for="item in this.$store.state.files"
+      <ppt-content-item v-for="item in files"
                         :itemfiles="item"
       ></ppt-content-item>
     </div>
@@ -24,6 +24,12 @@ export default {
     return{
     }
   },
+  props:{
+    files:{
+      type:Array,
+      default:'',
+    }
+  },
   components:{
     PptContentItem
   }
@@ -32,11 +38,10 @@ export default {
 
 <style scoped>
 .ppt-content{
-  width:980px;
-  height: 780px;
+  width:1450px;
+  height: 680px;
   margin:10px;
   border-radius: 5px;
-  border:2px green solid;
 }
 .ppt-head{
   height: 50px;
@@ -46,6 +51,7 @@ export default {
   font-weight: bolder;
   padding-top:10px;
 }
+
 .ppt-body{
   height:93%;
   overflow-y:scroll;
@@ -53,15 +59,23 @@ export default {
 ::-webkit-scrollbar{
   display:none;
 }
-.ppt-head ul>li{
-  list-style: none;
-  display: inline-flex;
-  width: 160px;
+.ppt-head li{
   font-size: 20px;
   padding: 5px;
+  width: 20%;
+  display:inline-block;
 }
-.ppt-head ul>li:first-child{
-  width: 450px;
+
+.ppt-head ul{
+  list-style: none;
+}
+.ppt-head #file-name{
+  width:40%;
+}
+#last{
+  position: relative;
+  top:-35px;
+  left:1140px;
 }
 
 

@@ -1,7 +1,7 @@
 <template>
   <div class="talkBarItem">
     <ul @click="talkChose(id)">
-      <li>{{theme.title}}</li>
+      <li id="zhuti">{{theme.title}}</li>
       <li>{{theme.creator}}</li>
       <li>{{theme.time}}</li>
       <li>{{theme.up}}</li>
@@ -40,16 +40,21 @@ export default {
   flex-direction: row;
   list-style: none;
   justify-content: space-around;
-  text-align: center;
   font-size: 20px;
   padding: 4px;
 }
-
+.talkBarItem li{
+  width: 20%;
+}
+.talkBarItem #zhuti{
+  width: 50%;
+  padding-left:25px;
+}
 .talkBarItem li{
   width: 20%;
 }
 .talkBarItem ul:hover{
-  background:rgba(215, 231, 229, 0.54);
+  background: rgba(183, 231, 224, 0.54);
   cursor:pointer;
 }
 </style>

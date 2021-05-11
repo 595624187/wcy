@@ -2,13 +2,13 @@
   <div class="homeDetail">
     <div id="homeLeft">
       <img src="~assets/img/touxiang.png" alt="">
-      <h2>{{$store.state.user.name }}</h2>
+      <h2>{{user.name }}</h2>
     </div>
     <div id="homeRight">
       <div class="h-detail">
-        <h2>用户描述，可JFK撒旦艰苦分类</h2>
+        <h2>{{ user.detail }}</h2>
       </div>
-      <dProgress :percentage="$store.state.user.progress"  status="success" :text-inside="true"  :stroke-height="20"/>
+      <dProgress :percentage="user.progress"  status="success" :text-inside="true"  :stroke-height="20"/>
       <span>学习进度</span>
     </div>
   </div>
@@ -23,10 +23,11 @@ export default {
   },
   data(){
     return{
+      user:''
     }
   },
   created() {
-
+    this.user=this.$store.state.users[0]
   },
 
 
@@ -59,7 +60,7 @@ export default {
   display: inline-block;
   position: relative;
   margin-left:20px;
-  top:-20px;
+  top:20px;
 }
 #homeRight span{
   position: relative;

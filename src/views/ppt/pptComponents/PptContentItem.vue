@@ -2,8 +2,8 @@
   <div class="ppt-content-item">
     <ul class="ppt-con" @click="ulClick(itemfiles.name)"
     :class="{activeStyle:itemfiles.name === this.currentFile}">
-      <li>{{itemfiles.name}}</li>
-      <li>{{this.$store.state.user.name}}</li>
+      <li id="zhuti">{{itemfiles.name}}</li>
+      <li>{{itemfiles.user}}</li>
       <li>{{itemfiles.time}}</li>
       <li>{{itemfiles.num}}</li>
     </ul>
@@ -43,24 +43,26 @@ export default {
 </script>
 
 <style scoped>
-
+.ppt-con{
+}
 .ppt-con li{
   list-style: none;
   display: inline-flex;
-  width: 160px;
   font-size: 20px;
   padding: 5px;
   font-weight: bolder;
+  width:20%;
+}
+.ppt-con #zhuti{
+  width:40%;
 }
 .ppt-content-item ul:hover{
-  background: rgba(215, 231, 229, 0.54);
+  background: rgba(169, 222, 215, 0.54);
   cursor: pointer;
 }
 
-.ppt-con li:first-child{
-  width: 450px;
-}
+
 .activeStyle{
-  background: rgba(215, 231, 229, 0.54);
+  background: rgba(169, 222, 215, 0.54);
 }
 </style>

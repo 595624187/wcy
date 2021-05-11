@@ -17,7 +17,7 @@ export default {
 <style scoped>
   #tab-bar{
     width:200px;
-    height:1000px;
+    height:973px;
     background-color:#F5F5F7;
   }
   :first-child{

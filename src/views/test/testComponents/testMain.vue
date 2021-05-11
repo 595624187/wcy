@@ -4,7 +4,10 @@
                :currentTest="currentTest"
                @btnClick="btnClick"
                @btnClick1="btnClick1"
-               @testChange="testChange"></test-head>
+               @testChange="testChange"
+              :title = "title"
+               :listId="id"
+    ></test-head>
     <test-body :test="tests[currentTest]"></test-body>
   </div>
 </template>
@@ -20,239 +23,10 @@ export default {
   },
   data(){
     return{
-      tests:[
-        {
-          index:1,
-          type:'simple',
-          title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
-          data:[
-            {
-              detail:'1啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'1啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'1啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'1啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-          ],
-        },
-        {
-          index:2,
-          type:'simple',
-          title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
-          data:[
-            {
-              detail:'2啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'2啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'2啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'2啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-          ],
-        },
-        {
-          index:3,
-          type:'simple',
-          title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
-          data:[
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-          ],
-        },
-        {
-          index:4,
-          type:'simple',
-          title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
-          data:[
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-          ],
-        },
-        {
-          index:5,
-          type:'multiple',
-          title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
-          data:[
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-          ],
-        },
-        {
-          index:6,
-          type:'multiple',
-          title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
-          data:[
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-          ],
-        },
-        {
-          index:7,
-          type:'multiple',
-          title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
-          data:[
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-          ],
-        },
-        {
-          index:8,
-          type:'multiple',
-          title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
-          data:[
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-          ],
-        },
-        {
-          index:9,
-          type:'multiple',
-          title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
-          data:[
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-          ],
-        },
-        {
-          index:10,
-          type:'multiple',
-          title:'啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山，请选择正确的答案()',
-          data:[
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-            {
-              detail:'3啊螺丝扣搭街坊实打手动阀手动阀手动阀手动阀撒旦实大苏打飒飒的撒旦撒啊实打实昆仑山',
-              state:false
-            },
-          ],
-        },
-      ],
+      tests:'',
       currentTest:0,
+      id:0,
+      title:'',
     }
   },
   methods:{
@@ -273,12 +47,22 @@ export default {
     testChange(index){
       this.currentTest = index-1
     }
+  },
+  created(){
+    this.id=parseInt(this.$route.query.id)
+    this.tests = this.$store.state.tests[this.id-1]
+    this.title = this.$store.state.lists[this.id-1].chapter+ ' ' +this.$store.state.lists[this.id-1].name
   }
 }
 </script>
 
 <style scoped>
 .testMain{
-  width: 1000px;
+  width: 1500px;
+  height:800px;
+  background: white;
+  margin:30px 0 0 30px;
+  box-shadow:2px 2px 10px #909090;
+  border-radius: 8px;
 }
 </style>

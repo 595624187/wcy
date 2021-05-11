@@ -1,22 +1,22 @@
 <template>
   <div class="ppt-menu">
     <div class="ppt-dir">
-      <button>←</button>
-      <button>→</button>
-      <button>刷新</button>
+      <button @click="pptClass">教学课件</button>
+      <button @click="pptTeacher">课堂分享</button>
+    </div>
+    <div>
+      <h2 style="padding-left:700px;font-size:28px;font-family: 微软雅黑">课件下载</h2>
     </div>
     <div class="ppt-download">
       <div class="upload-con"><upload-file></upload-file></div>
       <button class="download" @click="btnDownload">下载</button>
-      <button id="p-more">新建文件夹</button>
-      <button>移动</button>
       <button class="delete" @click="delFile">删除</button>
     </div>
   </div>
 </template>
 
 <script>
-import UploadFile from "@/components/common/UploadFile";
+import UploadFile from "@/views/ppt/pptUpload/UploadFile";
 export default {
   name: "PptMenu",
   components:{
@@ -42,6 +42,12 @@ export default {
           this.$store.state.files.splice(i,1)
         }
       }
+    },
+    pptClass(){
+      this.$emit('pptClass')
+    },
+    pptTeacher(){
+      this.$emit('pptTeacher')
     }
   }
 }
@@ -49,22 +55,22 @@ export default {
 
 <style scoped>
 .ppt-menu{
-  width:1000px;
-  height:100px;
-  display: flex;
+  width:1450px;
+  height:70px;
 }
 .ppt-menu *{
   align-self: center;
 }
-#p-more{
-  width: 100px;
-}
+
 
 .ppt-dir{
   height:70px;
+  float:left;
 }
 .ppt-download{
-  margin-left:100px;
+  position: relative;
+  top:-30px;
+  float:right;
   height:70px;
 }
 

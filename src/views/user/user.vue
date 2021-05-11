@@ -3,7 +3,7 @@
     <div class="user-top">
       <img src="~assets/img/touxiang.png" alt="">
       <div class="user-t">
-        <p>{{user.name}}</p>
+        <p>{{user.user_name}}</p>
         <div>
           <span>描述:</span>
           <textarea name="" id="" cols="30" rows="10" v-model="user.detail"></textarea>
@@ -14,7 +14,8 @@
       <h2>用户信息</h2>
       <hr>
       <div class="user-content">
-        <h4><span>用户:</span><input type="text" v-model="user.name"></h4>
+        <h4><span>账号:</span><input type="text" disabled v-model="user.name"></h4>
+        <h4><span>名称:</span><input type="text" v-model="user.user_name"></h4>
         <h4><span>性别:</span><input type="text" v-model="user.sex"></h4>
         <h4><span>年龄:</span><input type="text" v-model="user.age"></h4>
         <h4><span>位置:</span><input type="text" v-model="user.city"></h4>
@@ -33,7 +34,7 @@ export default {
     }
   },
   mounted(){
-    this.user = this.$store.state.user
+    this.user = this.$store.state.currentUser
   }
 
 
@@ -42,18 +43,23 @@ export default {
 
 <style scoped>
 .user{
-  width: 700px;
-  height:900px;
-  margin:20px 0 0 150px;
-  border-radius: 20px;
+  width: 1000px;
+  height: 750px;
+  margin: 30px 0 0 200px;
+  padding:40px 0 0 42px;
+  font-size: 18px;
+  font-family: 微软雅黑;
+  box-shadow:2px 2px 10px #909090;
+  border-radius: 8px;
+  background: white;
 }
 .user-top{
-  width:700px;
+  width:900px;
   height:225px;
   border-radius: 10px;
   border:4px rgba(208, 224, 132, 0.85) solid;
-  margin-bottom: 1px;
   display: flex;
+  margin-bottom: 30px;
 }
 .user-top img{
   width:200px;
@@ -75,7 +81,7 @@ export default {
 }
 .user-top textarea{
   padding: 4px;
-  width:350px;
+  width:400px;
   height: 100px;
   resize:none;
   background: none;
@@ -88,6 +94,7 @@ export default {
   padding-top:5px;
 }
 .user-bottom{
+  width:900px;
   padding: 10px 0 10px 10px;
   height: 60%;
   border-radius: 10px;

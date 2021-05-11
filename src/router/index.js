@@ -9,6 +9,8 @@ const login = () => import('@/views/user/login/Login')
 const talkOut = () => import('@/views/talk/talkComponents/talkOut/TalkOut')
 const talkIndex = () => import('@/views/talk/talkComponents/talkOut/TalkIndex')
 const user = () => import('@/views/user/user')
+const testList = () =>import('@/views/test/testList/TestList')
+const testMain = () => import('@/views/test/testComponents/testMain')
 Vue.use(VueRouter)
 const routes=[
     {
@@ -51,7 +53,14 @@ const routes=[
         path:'/talkIndex',
         component:talkIndex
     },
-
+    {
+        path:'/testList',
+        component:testList
+    },
+    {
+        path:'/testMain',
+        component:testMain
+    }
 ]
 
 const router = new VueRouter({

@@ -2,7 +2,6 @@
   <div id="app">
     <main-tab-bar></main-tab-bar>
     <main-nav-bar></main-nav-bar>
-    <main-content></main-content>
     <div class="main-content">
       <router-view></router-view>
     </div>
@@ -29,9 +28,15 @@ export default {
 <style>
   @import 'assets/css/base.css';
   .main-content{
-    position: relative;
-    top:100px;
-    left:200px;
-    z-index: 9;
+    padding-left:200px;
+    padding-top:100px;
+    background: url("assets/img/bg1.jpg") no-repeat;
+    background-size: 100% auto;
+    height: 973px;
   }
+  #app{
+    width:1920px;
+    height:955px;
+  }
+
 </style>

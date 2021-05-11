@@ -2,7 +2,7 @@
   <div class="testBody">
     <div class="testContent">
       <form action="" :key="test.index">
-        <span>{{test.index}}.(
+        <span class="title">{{test.index}}.(
           {{getType(test.type)}}){{test.title}}
         </span>
         <label for="optionA" :class="{labActive:test.data[0].state}">
@@ -77,14 +77,19 @@ export default {
 <style scoped>
 .testBody{
   width:1000px;
-  height:660px;
+  height:460px;
   display:flex;
   justify-content: center;
   padding-top:30px;
 }
 .testContent{
-  width:80%;
+  width:1100px;
+  margin-left:200px;
   font-size: 20px;
+  background: rgba(135, 212, 185, 0.28);
+  padding:10px 50px 0 50px;
+  border-radius: 8px;
+  box-shadow:2px 2px 10px #909090;
 }
 .testContent form{
   width: 100%;
@@ -93,16 +98,19 @@ export default {
   flex-direction: column;
 }
 .testContent span{
-  height: 30%;
-  border: 1px #ff5777 solid;
+  font-size: 23px;
+  font-family: 微软雅黑;
+  height:120px;
   padding:10px;
   border-radius: 10px;
 }
 .testContent label{
+  width:900px;
   padding:10px;
   margin: 10px 0 10px 0;
   border: 1px goldenrod solid;
   border-radius: 10px;
+  font-family: 微软雅黑;
 }
 .testContent label:hover{
   cursor: pointer;
@@ -112,8 +120,6 @@ export default {
 .labActive{
   background: rgba(0, 128, 0, 0.73);
   color:white;
-}
-.testContent input[type="checkbox"]{
 }
 
 </style>

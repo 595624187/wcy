@@ -1,6 +1,6 @@
 <template>
   <div class="talkOut">
-    <div class="talk-content">
+    <div class="talk-con">
       <h3>主题：</h3>
       <input type="text"
              id="talk-title"
@@ -8,7 +8,7 @@
              :value="themes[currentId].title"
              :readonly="isReadonly">
       <h3 id="des">描述：</h3>
-      <textarea name="talk-des"
+      <textarea
                 id="talk-des"
                 cols="30"
                 rows="10"
@@ -18,9 +18,7 @@
     <div class="talk-button">
       <slot name="talk-menu"></slot>
     </div>
-    <div>
-      <slot name="talk-content"></slot>
-    </div>
+    <slot name="talk-content"></slot>
   </div>
 </template>
 
@@ -49,47 +47,57 @@ export default {
 
 <style scoped>
 .talkOut{
-  width:1000px;
-  height:900px;
-  padding:50px 230px 0 180px;
+  width: 1700px;
+  height:830px;
+  display: flex;
 }
-.talk-content{
-  width:100%;
-  height:380px;
+.talk-con{
+  width:40%;
+  height:600px;
+  padding:50px 0 20px 80px;
 }
-.talk-content h3{
+.talk-con h3{
   width:100px;
   display: inline;
-}
-.talk-content #des{
   position: relative;
-  top:-274px;
+  top: 35px;
+  left: -55px;
+  font-family: 微软雅黑;
+  font-size: 25px;
 }
 
-.talk-content #talk-title {
-  width:520px;
+
+.talk-con #talk-title {
+  width:600px;
   height:50px;
   font-size:20px;
   padding:5px;
+  margin-left:10px;
   margin-bottom: 20px;
   border-radius: 5px;
   outline: none;
   border:2px rgba(201, 80, 80, 0.76) solid;
 }
-.talk-content #talk-des{
-  width:520px;
+.talk-con #talk-des{
+  width:600px;
   height:300px;
   font-size: 18px;
   line-height: 30px;
   padding:5px;
+  margin-left:10px;
   border-radius: 5px;
   resize:none;
   outline: none;
   border:2px #67b664 solid;
 }
 .talk-button{
-
+  display:inline-block;
+  padding-top:20px;
+  height:300px;
+  width: 40%;
+  position: relative;
+  right: 300px;
+  top: 485px;
 }
-
 
 </style>
