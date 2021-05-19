@@ -26,6 +26,7 @@
 </template>
 
 <script>
+
 export default {
   name: "user",
   data(){
@@ -43,10 +44,10 @@ export default {
 
 <style scoped>
 .user{
-  width: 1000px;
-  height: 750px;
-  margin: 30px 0 0 200px;
-  padding:40px 0 0 42px;
+  width: 1500px;
+  height:800px;
+  margin:30px 0 0 30px;
+  padding:40px 0 0 300px;
   font-size: 18px;
   font-family: 微软雅黑;
   box-shadow:2px 2px 10px #909090;

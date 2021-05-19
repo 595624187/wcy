@@ -14,6 +14,8 @@
 <script>
 import LearnMain from "./learnVideo/LearnMain";
 import LearnChoose from "./learnVideo/LearnChoose";
+import {getMovies} from "../../network";
+
 export default {
   name: "learn",
   components:{
@@ -27,7 +29,7 @@ export default {
     return{
       movies:[],
       index:0,
-      currentMovie:{},
+      currentMovie:'',
       maxIndex:0,
     }
   },
@@ -35,14 +37,20 @@ export default {
     mvChoice(data){
       this.index=data
       this.currentMovie=this.movies[this.index]
-    }
-  },
+    },
 
+  },
+  created() {
+
+  },
   mounted() {
-    this.movies=this.$store.state.movies
+    getMovies().then(res=>{
+      this.movies=res.data.data
+    })
     this.currentMovie=this.movies[this.index]
     this.maxIndex=this.movies.length
   }
+
 
 }
 </script>
@@ -50,6 +58,7 @@ export default {
 <style scoped>
 .learn{
   width:1500px;
+  height:800px;
   display:flex;
   margin:30px 0 0 30px;
   box-shadow:2px 2px 10px #909090;

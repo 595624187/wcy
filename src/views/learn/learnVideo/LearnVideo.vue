@@ -22,8 +22,9 @@ export default {
   width:1000px;
   background: rgba(102, 102, 102, 0.64);
   color:white;
-  top:52px;
+  top:69px;
   padding:5px 0 5px 3px;
+  z-index: 2;
 }
 .learn-video video{
   width:1000px;

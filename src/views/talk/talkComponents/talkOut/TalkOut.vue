@@ -33,9 +33,12 @@ export default {
   },
   data(){
     return{
-      title:'',
-      text:'',
+      title:null,
+      text:null,
     }
+  },
+  created() {
+
   },
   methods:{
     getDate(date) {
@@ -56,18 +59,31 @@ export default {
       this.$router.replace('/talk')
     },
     talkUp(){
-     let theme = {
-       title:this.title,
-       content:this.text,
-       creator:'用户000',
-       time:this.getDate(new Date()),
-       up:0,
-       down:0,
-       click:0,
-       id:4
-     }
-    this.$store.state.themes.unshift(theme)
-      this.$router.replace('/talk')
+      if(this.title!==null&&this.text!==null){
+        let theme = {
+          title:this.title,
+          content:this.text,
+          creator:'用户000',
+          time:this.getDate(new Date()),
+          up:0,
+          down:0,
+          click:0,
+          id:4
+        }
+        this.$store.state.themes.unshift(theme)
+        this.$router.replace('/talk')
+        this.$store.state.zhongjie.talk+=3
+        this.$myMsg.notify({
+          content:'发布成功！',
+          type:'success',
+        })
+      }else{
+        this.$myMsg.notify({
+          content:'标题或内容为空！',
+          type:'error',
+        })
+      }
+
     }
   }
 }
@@ -81,7 +97,7 @@ export default {
   box-shadow:2px 2px 10px #909090;
   border-radius: 8px;
   margin:30px 0 0 30px;
-  padding:200px 0 0 200px;
+  padding:100px 0 0 300px;
 }
 .talk-out ul{
   list-style: none;

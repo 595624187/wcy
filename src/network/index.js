@@ -1,40 +1,27 @@
 import axios from 'axios'
-export  {
-    getData,
-    postTest,
-    requestTest,
-    addUser
-}
 
-function postTest(){
+export function getD(){
     return axios({
-        url:'http://localhost:8080/add',
+        url:'http://localhost:9999/api/movie',
         type:'post',
-        contentType:'application/json',
-        data:JSON.stringify({
-            name:'wcy',
-            age:12,
-            email:'aaa@qq.com'
-        }),
-
     })
 }
 
-function getData(){
-    return axios.get('http://localhost:8080/all')
-}
-
-function requestTest(){
+export function getMovies(){
     return axios({
-        methods:'request',
-        url:'http://localhost:8080'
+        url:'http://localhost:9999/api/movie',
+        type:'post',
     })
 }
-
-function addUser(){
+export function getLists(){
     return axios({
-        methods:'get',
-        url:'http://localhost:8080/add1'
+        url:'http://localhost:9999/api/chapter',
+        type:'get'
     })
 }
-
+export function getTests(id){
+    return axios({
+        url:'http://localhost:9999/api/subject/'+id,
+        type:'get'
+    })
+}

@@ -5,16 +5,18 @@
                @btnClick="btnClick"
                @btnClick1="btnClick1"
                @testChange="testChange"
-              :title = "title"
                :listId="id"
+               :name="name"
     ></test-head>
-    <test-body :test="tests[currentTest]"></test-body>
+    <test-body :test="tests[currentTest]" :currentTest="currentTest+1"></test-body>
   </div>
 </template>
 
 <script>
 import testHead from "@/views/test/testComponents/testHead";
 import testBody from "@/views/test/testComponents/testBody";
+import {getTests} from "../../../network";
+
 export default {
   name: "testMain",
   components:{
@@ -23,10 +25,10 @@ export default {
   },
   data(){
     return{
-      tests:'',
+      tests:[],
       currentTest:0,
       id:0,
-      title:'',
+      name:'',
     }
   },
   methods:{
@@ -46,12 +48,21 @@ export default {
     },
     testChange(index){
       this.currentTest = index-1
+    },
+    getTests(id){
+      getTests(id).then(res=>{
+        this.tests=res.data.data
+      })
     }
+
   },
   created(){
     this.id=parseInt(this.$route.query.id)
-    this.tests = this.$store.state.tests[this.id-1]
-    this.title = this.$store.state.lists[this.id-1].chapter+ ' ' +this.$store.state.lists[this.id-1].name
+    this.name = this.$route.query.name
+    this.getTests(this.id)
+  },
+  mounted() {
+
   }
 }
 </script>

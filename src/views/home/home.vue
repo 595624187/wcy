@@ -3,6 +3,7 @@
     <home-detail></home-detail>
     <home-calendar></home-calendar>
     <home-recom></home-recom>
+    <button @click="test">按钮</button>
   </div>
 </template>
 
@@ -18,17 +19,22 @@ export default {
     homeRecom,
   },
   methods:{
-
+    test(){
+      this.$myMsg.notify({
+        content:'这是错误消息',
+        type:'error',
+      })
+    }
   }
 }
 </script>
 
 <style scoped>
 .home{
-  width:1000px;
-  height:750px;
+  width:1500px;
+  height:800px;
   display:inline-block;
-  margin:30px 0 0 200px;
+  margin:30px 0 0 30px;
   box-shadow:2px 2px 10px #909090;
   border-radius: 8px;
   background: snow;

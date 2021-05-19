@@ -105,7 +105,7 @@ export default {
     },
     trackPath(){
       const radius = 50-this.relativeStrokeHeight/2;
-      return 'M 50 50 m 0 -'+radius+' a '+radius+' '+radius+' 0 1 1 0 '+radius*2+' a '+radius+' '+radius+' 0 1 1 0 -'+radius*2+' ' ;
+      return 'M 50 50 m 0 -'+radius+' myMsg '+radius+' '+radius+' 0 1 1 0 '+radius*2+' myMsg '+radius+' '+radius+' 0 1 1 0 -'+radius*2+' ' ;
     },
     relativeStrokeHeight(){
       return this.strokeHeight*100 / this.cwidth;

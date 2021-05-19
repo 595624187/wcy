@@ -1,14 +1,16 @@
 <template>
   <div class="testHead">
     <div class="testTitle">
-      <h2>{{ this.title }}</h2>
+      <h2><span>{{name}}</span> </h2>
     </div>
     <div class="testLeft" >
       <ul>
-        <li v-for="test in tests"
-            @click="liClick(test.index)"
-            :class="[test.index-1===currentTest?'liActive':'',getStatu(test)?'finished':'']"
-        >{{test.index}}
+
+        <li v-for="(test,index) in tests"
+            @click="liClick(index+1)"
+            :class="[test.id-1===currentTest?'liActive':'',getStatu(test)?'finished':'']"
+        >
+        {{index+1}}
         </li>
       </ul>
     </div>
@@ -31,7 +33,7 @@ export default {
   props:{
     tests:{
       type:Array,
-      default:[],
+      default:'',
     },
     currentTest: {
       type:Number,
@@ -43,6 +45,10 @@ export default {
     },
     listId:{
       type:Number,
+      default:'',
+    },
+    name:{
+      type:String,
       default:'',
     }
   },
@@ -59,11 +65,13 @@ export default {
       this.$emit('btnClick1')
     },
     liClick(index){
-
       this.$emit('testChange',index)
     },
     backClick(){
       this.$router.replace('/test')
+    },
+    getStatu(test){
+      return test.stateA||test.stateB||test.stateC||test.stateD
     },
     testSub(){
       let flag = true
@@ -81,7 +89,8 @@ export default {
         for(let temp of this.$store.state.lists){
           if(temp.id===this.listId){
             temp.state='完成'
-            this.$router.replace('/test')
+            this.$router.push({path:'/testResult'})
+            this.$store.state.tests1=this.tests
           }
         }
       }else{
@@ -90,15 +99,6 @@ export default {
     }
   },
   computed:{
-    getStatu(){
-      return function(test){
-        for(let i=0;i<test.data.length;i++){
-          if(test.data[i].state){
-            return true
-          }
-        }
-      }
-    }
   }
 }
 </script>

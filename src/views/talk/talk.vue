@@ -59,13 +59,26 @@ export default {
       let i=0
       for(let a of arr){
         this.recThemes[i++]=this.$store.state.themes[a]
+
+      }
+      this.$myMsg.notify({
+        content:'切换成功！',
+        type:'success',
+      })
+    },
+    getNum(){
+      this.recThemes=new Array(4)
+      let arr = this.getRandom()
+      let i=0
+      for(let a of arr){
+        this.recThemes[i++]=this.$store.state.themes[a]
       }
     }
 
   },
   created() {
     this.hotThemes=this.$store.state.themes
-    this.changeNum()
+    this.getNum()
   }
 }
 </script>

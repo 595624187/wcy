@@ -9,8 +9,8 @@
           <ul class="mvUl">
             <li v-for="(movie,index) in movies" @click="liClick(index)"
             :class="{ulActive:index===mvIndex}"
-            ><span class="span-left">{{movie.chapter}}</span>
-              <span class="span-right">{{movie.title}}</span></li>
+            ><span class="span-left">{{movie.id}}</span>
+              <span class="span-right">{{movie.name}}</span></li>
           </ul>
         </scroll>
       </div>
@@ -48,7 +48,7 @@ export default {
   },
 
   mounted(){
-
+    this.$store.state.zhongjie.learn=this.mvIndex
   },
   methods:{
     mvBackward(){

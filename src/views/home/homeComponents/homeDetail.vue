@@ -2,7 +2,7 @@
   <div class="homeDetail">
     <div id="homeLeft">
       <img src="~assets/img/touxiang.png" alt="">
-      <h2>{{user.name }}</h2>
+      <h2>{{user.user_name }}</h2>
     </div>
     <div id="homeRight">
       <div class="h-detail">
@@ -27,7 +27,7 @@ export default {
     }
   },
   created() {
-    this.user=this.$store.state.users[0]
+    this.user=this.$store.state.currentUser
   },
 
 
@@ -36,8 +36,8 @@ export default {
 
 <style scoped>
 .homeDetail{
-  width:888px;
-  height: 185px;
+  width:1200px;
+  height: 200px;
   margin-left:50px;
   border-radius:10px;
   background: #d1efd5;

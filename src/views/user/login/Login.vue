@@ -4,17 +4,15 @@
       <h2 style="color:black">{{ this.msg }}</h2>
     </div>
     <div class="input-wrap">
-      <input type="text" v-model="name" placeholder="用户名">
-      <span></span>
-    </div>
-    <div class="input-wrap">
-      <input type="password" v-model="pwd" placeholder="密码">
-      <span></span>
-    </div>
-    <p style="background:white;color:red">{{this.error}}</p>
-    <div class="input-wrap inputBtn">
-      <button @click="btnLogin">登录</button>
-      <button @click="register">注册</button>
+      <form action="http://localhost:9999/login" method="post">
+        <input type="text" v-model="name" placeholder="用户名">
+        <input type="password" v-model="pwd" placeholder="密码">
+        <div class="input-wrap inputBtn">
+<!--          <button @click="btnLogin">登录</button>-->
+          <input type="submit" @click="btnLogin" value="登录">
+          <button @click="register">注册</button>
+        </div>
+      </form>
     </div>
   </div>
 </template>
@@ -104,14 +102,26 @@ export default {
 .input-wrap{
   padding:10px;
 }
-
 .login input{
   width: 300px;
   height:50px;
   border-radius: 10px;
   outline: none;
   padding-left:20px;
+  margin:0 0 10px 100px;
   font-size: 18px;
+}
+.inputBtn input{
+  background: rgb(40, 110, 239);
+  color:whitesmoke;
+  font-family: 微软雅黑;
+  font-size: 20px;
+  margin-left:10px;
+  border:none;
+  font-weight: bolder;
+}
+.inputBtn input:hover{
+  cursor: pointer;
 }
 .login button{
   width:300px;
@@ -121,7 +131,6 @@ export default {
   color:whitesmoke;
   font-weight: bolder;
   font-size: 18px;
-
 }
 .inputBtn{
   padding-left:90px;

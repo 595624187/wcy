@@ -1,18 +1,18 @@
 <template>
  <div class="learn-main">
    <learn-video>
-     <div slot="learn-title" >
-       {{movie.chapter}} {{movie.title}}
+     <div slot="learn-title"  >
+       {{movie.id}}、 {{movie.name}}
      </div>
      <div slot="learn-body">
        <video
            id="video"
+           ref="video"
            controls
-           preload="auto"
-           crossorigin="anonymous"
            autoplay
-           :src="movie.mv_src"
+           :src=movie.url
        >
+         视频加载失败
        </video>
      </div>
    </learn-video>
@@ -29,17 +29,23 @@ export default {
   },
   data(){
     return{
+
     }
+  },
+  methods:{
+
   },
   props:{
     movie:{
       type:Object,
-      default:'',
+      default:{
+        id:1,
+        name:'test',
+        url:'https://vdn.vzuu.com/HD/22c69f92-8ae6-11ea-8251-927918750bb0.mp4?disable_local_cache=1&auth_key=1621244408-0-0-4cb030a49fcc33742b439695dd05029e&f=mp4&bu=http-com&expiration=1621244408&v=ali'
+      },
     }
   },
-  created(){
 
-  }
 
   }
 
@@ -47,8 +53,6 @@ export default {
 
 <style scoped>
 #video{
-  position: relative;
-  top: -17px;
   height:700px;
 }
 </style>

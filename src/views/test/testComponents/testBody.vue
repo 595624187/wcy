@@ -1,29 +1,29 @@
 <template>
   <div class="testBody">
     <div class="testContent">
-      <form action="" :key="test.index">
-        <span class="title">{{test.index}}.(
-          {{getType(test.type)}}){{test.title}}
+      <form action="" :key="test.id">
+        <span class="title">{{currentTest}}.
+          ({{getType(test.type)}}) {{test.name}}
         </span>
-        <label for="optionA" :class="{labActive:test.data[0].state}">
+        <label for="optionA" :class="{labActive:test.stateA}">
           <input type="checkbox" id="optionA"
-                 :checked="test.data[0].state"
-                 @click="checkClick(index=0,test.type,$event)"> A {{test.data[0].detail}}
+                 :checked="test.stateA"
+                 @click="checkClick(index=0,test.type,$event)"> A {{test.optionA}}
         </label>
-        <label for="optionB" :class="{labActive:test.data[1].state}">
+        <label for="optionB" :class="{labActive:test.stateB}">
           <input type="checkbox"  id="optionB"
-                 :checked="test.data[1].state"
-                 @click="checkClick(index=1,test.type,$event)"> B {{test.data[1].detail}}
+                 :checked="test.stateB"
+                 @click="checkClick(index=1,test.type,$event)"> B {{test.optionB}}
         </label>
-        <label for="optionC" :class="{labActive:test.data[2].state}">
+        <label for="optionC" :class="{labActive:test.stateC}">
           <input type="checkbox"  id="optionC"
-                 :checked="test.data[2].state"
-                 @click="checkClick(index=2,test.type,$event)"> C {{test.data[2].detail}}
+                 :checked="test.stateC"
+                 @click="checkClick(index=2,test.type,$event)"> C {{test.optionC}}
         </label>
-        <label for="optionD" :class="{labActive:test.data[3].state}">
+        <label for="optionD" :class="{labActive:test.stateD}">
           <input type="checkbox"  id="optionD"
-                 :checked="test.data[3].state"
-                 @click="checkClick(index=3,test.type,$event)"> D {{test.data[3].detail}}
+                 :checked="test.stateD"
+                 @click="checkClick(index=3,test.type,$event)"> D {{test.optionD}}
         </label>
       </form>
     </div>
@@ -41,6 +41,10 @@ export default {
     test:{
       type:Object,
       default:'',
+    },
+    currentTest:{
+      type:Number,
+      default:'',
     }
   },
   computed:{
@@ -57,14 +61,35 @@ export default {
   methods:{
     checkClick(index,type,event){
       if(type==='multiple'){
-        this.test.data[index].state= event.target.checked
-      }else if(type==='simple'){
-        for(let i=0;i<this.test.data.length;i++){
-          if(i===index)
-            this.test.data[index].state= event.target.checked
-          else
-            this.test.data[i].state = false
+        if(index===0){
+          this.test.stateA=event.target.checked
+        }else if(index===1){
+          this.test.stateB=event.target.checked
+        }else if(index===2){
+          this.test.stateC=event.target.checked
+        }else if(index===3){
+          this.test.stateD=event.target.checked
         }
+      }else if(type==='simple'){
+        this.test.stateA=false
+        this.test.stateB=false
+        this.test.stateC=false
+        this.test.stateD=false
+        if(index===0){
+          this.test.stateA=event.target.checked
+        }else if(index===1){
+          this.test.stateB=event.target.checked
+        }else if(index===2){
+          this.test.stateC=event.target.checked
+        }else if(index===3){
+          this.test.stateD=event.target.checked
+        }
+        // for(let i=0;i<4;i++){
+        //   if(i===index)
+        //     this.test.data[index].state= event.target.checked
+        //   else
+        //     this.test.data[i].state = false
+        // }
       }
     },
 

@@ -10,13 +10,15 @@
         </ul>
       </div>
     <div class="zhongjie">
-      <h3>今天你的学习超越了<span>{{zhongjie.rate}}%</span>的同学，再接再厉!</h3>
+      <h3>今天你的学习超越了<span>{{getZhongjie(zhongjie)}}%</span>的同学，再接再厉!</h3>
     </div>
   </div>
 </template>
 
 <script>
-import * as foo from '@/network/index'
+import {getD} from '@/network/index'
+
+
 export default {
   name: "homeRecom",
   components:{
@@ -24,12 +26,27 @@ export default {
   data(){
     return{
       zhongjie:'',
+      msg:'',
     }
   },
   methods:{
-
+    getD(){
+      getD().then(res=>{
+        this.msg=res.data.data
+      })
+    },
+    getZhongjie(obj){
+      let t=5
+      let sum = obj.learn*0.4+obj.ppt*0.2+obj.talk*0.1+obj.test*0.3
+      let rate = Math.round(sum/t * 10000) / 100
+      if(rate>99){
+        rate = 99.99
+      }
+      return rate
+    }
   },
   created() {
+    this.getD()
     this.zhongjie=this.$store.state.zhongjie
   }
 
@@ -41,6 +58,8 @@ export default {
   width:380px;
   height:500px;
   float:right;
+  position:relative;
+  right:300px;
   background: rgba(87, 255, 149, 0.09);
   margin:20px 40px 0 0;
   border-radius: 10px;

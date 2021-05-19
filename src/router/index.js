@@ -11,6 +11,7 @@ const talkIndex = () => import('@/views/talk/talkComponents/talkOut/TalkIndex')
 const user = () => import('@/views/user/user')
 const testList = () =>import('@/views/test/testList/TestList')
 const testMain = () => import('@/views/test/testComponents/testMain')
+const testResult = () => import('@/views/test/testResult/TestResult')
 Vue.use(VueRouter)
 const routes=[
     {
@@ -60,6 +61,10 @@ const routes=[
     {
         path:'/testMain',
         component:testMain
+    },
+    {
+        path:'/testResult',
+        component:testResult
     }
 ]
 

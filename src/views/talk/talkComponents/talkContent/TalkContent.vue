@@ -72,6 +72,16 @@ export default {
         com.down = 0
         this.talkMsg.unshift(com)
         this.notedata = ''
+        this.$store.state.zhongjie.talk++
+        this.$myMsg.notify({
+          content:'评论成功！',
+          type:'success',
+        })
+      }else{
+        this.$myMsg.notify({
+          content:'评论内容为空！',
+          type:'error',
+        })
       }
 
     },
@@ -105,6 +115,16 @@ export default {
         this.isHidden1 = false
         this.replaydata = ''
         this.isHidden = false
+        this.$store.state.zhongjie.talk++
+        this.$myMsg.notify({
+          content:'回复成功！',
+          type:'success',
+        })
+      }else{
+        this.$myMsg.notify({
+          content:'回复内容为空！',
+          type:'error',
+        })
       }
     }
   }

@@ -32,6 +32,11 @@ export default {
       for(let i=0;i<file.length;i++){
         if(file[i].name===this.$store.state.currentFile){
           this.$store.state.files[i].num++
+          this.$store.state.zhongjie.ppt++
+          this.$myMsg.notify({
+            content:'下载成功!',
+            type:'success',
+          })
         }
       }
     },
@@ -40,6 +45,10 @@ export default {
       for(let i=0;i<file.length;i++){
         if(file[i].name===this.$store.state.currentFile){
           this.$store.state.files.splice(i,1)
+          this.$myMsg.notify({
+            content:'删除成功!',
+            type:'success',
+          })
         }
       }
     },

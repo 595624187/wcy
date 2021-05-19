@@ -8,7 +8,7 @@
       <li>状态</li>
     </ul>
     <div class="list-content">
-      <ul v-for="list in lists" @click="testClick(list.id)">
+      <ul v-for="list in lists" @click="testClick(list.id,list.chapter+' '+list.name)">
         <li>{{ list.chapter }}</li>
         <li>{{ list.name }}</li>
         <li>{{ list.num }}</li>
@@ -20,20 +20,27 @@
 </template>
 
 <script>
+import {getLists} from "../../../network";
+
 export default {
   name: "TestList",
   data(){
     return{
-      Lists:''
+      lists:''
     }
   },
   methods:{
-    testClick(id){
-      this.$router.push({path: '/testMain', query: {id:id}})
+    testClick(id,name){
+      this.$router.push({path: '/testMain', query: {id:id,name:name}})
+    },
+    getLists(){
+      getLists().then(res=>{
+        this.lists=res.data.data
+      })
     }
   },
   created() {
-    this.lists=this.$store.state.lists
+        this.getLists()
   }
 }
 </script>
