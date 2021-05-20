@@ -50,6 +50,7 @@ export default {
   mounted(){
     this.$store.state.zhongjie.learn=this.mvIndex
   },
+
   methods:{
     mvBackward(){
       if(this.mvIndex>=1){
@@ -59,6 +60,7 @@ export default {
     mvForward(){
       if(this.mvIndex<this.maxIndex-1){
         this.$emit('child-choice',this.mvIndex+1)
+        this.$store.state.zhongjie.learn++
       }
     },
     liClick(index){
@@ -74,7 +76,8 @@ export default {
 .video-choice{
   border:1px solid #ddd;
   padding:10px;
-  width:485px;
+  margin-left:10px;
+  width:465px;
   height:480px;
   text-align: center;
   overflow-y: scroll;
@@ -104,7 +107,7 @@ export default {
   color: #fff7f7;
 }
 .mvUl{
-  width:460px;
+  width:440px;
 }
 .span-left{
   display: inline-block;

@@ -3,7 +3,6 @@
     <home-detail></home-detail>
     <home-calendar></home-calendar>
     <home-recom></home-recom>
-    <button @click="test">按钮</button>
   </div>
 </template>
 
@@ -18,14 +17,7 @@ export default {
     homeCalendar,
     homeRecom,
   },
-  methods:{
-    test(){
-      this.$myMsg.notify({
-        content:'这是错误消息',
-        type:'error',
-      })
-    }
-  }
+
 }
 </script>
 

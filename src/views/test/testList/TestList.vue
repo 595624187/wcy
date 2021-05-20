@@ -1,19 +1,23 @@
 <template>
   <div class="testList">
-    <h2 class="test-title">测评</h2>
-    <ul>
-      <li>章节</li>
-      <li>名称</li>
-      <li>题目数量</li>
-      <li>状态</li>
-    </ul>
+    <h2 class="test-title">测评模块</h2>
     <div class="list-content">
-      <ul v-for="list in lists" @click="testClick(list.id,list.chapter+' '+list.name)">
-        <li>{{ list.chapter }}</li>
-        <li>{{ list.name }}</li>
-        <li>{{ list.num }}</li>
-        <li>{{ list.state }}</li>
-      </ul>
+      <div class="testUl">
+        <ul>
+          <li>章节</li>
+          <li>名称</li>
+          <li>题目数量</li>
+          <li>状态</li>
+        </ul>
+      </div>
+     <div class="testCon">
+       <ul v-for="list in lists" @click="testClick(list.id,list.chapter+' '+list.name)">
+         <li>{{ list.chapter }}</li>
+         <li>{{ list.name }}</li>
+         <li>{{ list.num }}</li>
+         <li>{{ list.state }}</li>
+       </ul>
+     </div>
     </div>
 
   </div>
@@ -59,49 +63,46 @@ export default {
   font-family: 微软雅黑;
   line-height: 80px;
 }
-.testList ul{
-  background: rgba(127, 255, 212, 0.61);
-  line-height: 50px;
-  margin-left:5px;
-}
-.testList li{
-  padding-left:5px;
-
+.testUl{
+  background: #339981;
+  color:snow;
+  height: 40px;
+  line-height: 40px;
+  font-size:20px;
 }
 
 .test-title-ul li{
   padding-left:30px;
 }
 ul{
-  width: 1450px;
-  height: 50px;
+  height: 40px;
   list-style: none;
   display: flex;
   justify-content: space-around;
   padding-left:30px;
+
 }
  li{
-  height: 50px;
-  width: 33.3%;
+   height: 50px;
+   width: 33.3%;
    font-size: 23px;
-   padding-left:40px;
-   font-family: 微软雅黑;
 }
- .list-content{
-   height:600px;
+ .testCon{
+   height:640px;
    overflow-y: scroll;
+   background: rgba(135, 206, 235, 0.27);
  }
-.list-content ul{
-  background: rgba(181, 190, 252, 0.18);
+.testCon ul{
   padding-left:30px;
-  margin:4px;
+  line-height: 25px;
+  height: 30px;
+
 }
- .list-content li{
+ .testCon li{
    padding: 5px;
  }
- .list-content ul:hover{
+ .testCon ul:hover{
    background: rgba(75, 147, 224, 0.34);
-   color:white;
    cursor: pointer;
  }
 </style>

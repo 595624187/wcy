@@ -91,10 +91,17 @@ export default {
             temp.state='完成'
             this.$router.push({path:'/testResult'})
             this.$store.state.tests1=this.tests
+            this.$myMsg.notify({
+              content:'提交成功！',
+              type:'success',
+            })
           }
         }
       }else{
-        this.msg=index+'未填写,请完成后再提交'
+        this.$myMsg.notify({
+          content:'第'+index+'题未填写,请完成后再提交！',
+          type:'warning',
+        })
       }
     }
   },

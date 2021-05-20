@@ -42,13 +42,14 @@ export default {
   height: 680px;
   margin:10px;
   border-radius: 5px;
+  background: rgba(135, 206, 235, 0.27);
 }
 .ppt-head{
-  height: 50px;
+  height: 40px;
   width:100%;
-  background: #dfebf9;
-  color: rgba(0, 0, 0, 0.93);
-  font-weight: bolder;
+  background: #339981;
+  color:snow;
+  font-weight: bold;
   padding-top:10px;
 }
 
@@ -61,20 +62,22 @@ export default {
 }
 .ppt-head li{
   font-size: 20px;
-  padding: 5px;
   width: 20%;
   display:inline-block;
+  padding-left:20px;
 }
 
 .ppt-head ul{
   list-style: none;
+  line-height: 15px;
 }
 .ppt-head #file-name{
   width:40%;
+
 }
 #last{
   position: relative;
-  top:-35px;
+  top:-15px;
   left:1140px;
 }
 

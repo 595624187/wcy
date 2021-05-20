@@ -1,18 +1,17 @@
 <template>
   <div class="login">
-    <div class="input-wrap" id="top-wrap">
+    <div  id="top-wrap">
       <h2 style="color:black">{{ this.msg }}</h2>
     </div>
     <div class="input-wrap">
-      <form action="http://localhost:9999/login" method="post">
+<!--      <form>-->
         <input type="text" v-model="name" placeholder="用户名">
         <input type="password" v-model="pwd" placeholder="密码">
         <div class="input-wrap inputBtn">
-<!--          <button @click="btnLogin">登录</button>-->
-          <input type="submit" @click="btnLogin" value="登录">
-          <button @click="register">注册</button>
+          <button @click="btnLogin">登录</button>
+          <button @click="register1">注册</button>
         </div>
-      </form>
+<!--      </form>-->
     </div>
   </div>
 </template>
@@ -30,8 +29,16 @@ export default {
     }
   },
   methods:{
+    register1(){
+      this.$router.replace('/register')
+    },
     btnLogin(){
-      if(this.name!==''&&this.pwd!==''){
+      if(this.name===''||this.pwd===''){
+        this.$myMsg.notify({
+          content:'密码或账号为空！',
+          type:'warning',
+        })
+      }else{
         let users = this.$store.state.users
         for(let user of users){
           if(user.name===this.name){
@@ -39,50 +46,30 @@ export default {
               this.$store.state.currentUser=user
               this.$store.state.currentUser.state='退出'
               this.$router.replace('/home')
+              this.$myMsg.notify({
+                content:'登录成功！',
+                type:'success',
+              })
             }else{
-              thie.error='密码错误！'
+              this.$myMsg.notify({
+                content:'密码错误！',
+                type:'error',
+              })
             }
           }else{
-            this.error='该用户不存在!'
+            this.$myMsg.notify({
+              content:'账号不存在',
+              type:'warning',
+            })
           }
         }
-      }else{
-        this.error='请输入账号和密码!'
       }
 
     },
-    register(){
-      let flag1 = false
-      for(let user of this.users){
-        if(user.name === this.name){
-          flag1=true
-          break
-        }
-      }
-      if(flag1){
-        this.error='用户已存在，请重新输入'
-      }else{
-        let newUser = {
-          id:1,
-          name:this.name,
-          pwd:this.pwd,
-          user_name:'默认用户名',
-          state:'未登录',
-          sex:'未知',
-          age:'未知',
-          city:'未知',
-          work:'未知',
-          detail:'未添加简介,用户可以在主页添加简介',
-          progress:20,
-        }
-        this.$store.state.users.unshift(newUser)
-        this.error='注册成功！'
-      }
-    }
+
   },
   created(){
     this.users=this.$store.state.users
-
   }
 }
 </script>
@@ -137,5 +124,6 @@ export default {
 }
 #top-wrap{
   padding-top:80px;
+  padding-bottom: 10px;
 }
 </style>

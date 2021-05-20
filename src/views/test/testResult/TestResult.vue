@@ -11,7 +11,8 @@
       <hr style="width:1000px;">
     </div>
     <div class="testSum">
-      <h2>本次练习成绩：</h2>
+      <h2 id="title">本次练习成绩：</h2>
+      <hr style="width:300px;height:2px;background:#000;margin-bottom: 10px;">
       <h2>题目个数：<span>{{ getSum(tests) }}</span></h2>
       <h2>正确个数：<span style="color:green">{{getRight(tests)}}</span></h2>
       <h2>正确率：<span style="color:red">{{getRate(tests)}}%</span></h2>
@@ -106,6 +107,19 @@ export default {
 
 }
 .testSum{
-  padding-top:20px;
+  padding:30px 0 0 80px;
+  width:400px;
+  height:300px;
+  border: 2px solid red;
+  font-size:16px;
+  border-radius: 10px;
+  margin:10px;
+  background: rgba(191, 176, 102, 0.16);
+}
+.testSum #title{
+  font-size: 30px;
+  font-family: 微软雅黑;
+  padding-bottom: 10px;
+  color: #0088ff;
 }
 </style>

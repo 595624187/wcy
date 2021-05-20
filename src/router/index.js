@@ -12,6 +12,7 @@ const user = () => import('@/views/user/user')
 const testList = () =>import('@/views/test/testList/TestList')
 const testMain = () => import('@/views/test/testComponents/testMain')
 const testResult = () => import('@/views/test/testResult/TestResult')
+const regiester = () => import('@/views/user/login/Register')
 Vue.use(VueRouter)
 const routes=[
     {
@@ -33,6 +34,7 @@ const routes=[
     {
         path:'/talk',
         component:talk,
+
     },
     {
         path:'/test',
@@ -65,6 +67,10 @@ const routes=[
     {
         path:'/testResult',
         component:testResult
+    },
+    {
+        path:'/register',
+        component:regiester
     }
 ]
 

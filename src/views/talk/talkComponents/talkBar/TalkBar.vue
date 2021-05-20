@@ -64,7 +64,7 @@ export default {
   height:40px;
   list-style: none;
   text-align: left;
-  font-size: 23px;
+  font-size: 21px;
   font-weight: bold;
   font-family: 华文中宋;
   background: #339981;

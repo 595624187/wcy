@@ -40,8 +40,8 @@ export default {
   flex-direction: row;
   list-style: none;
   justify-content: space-around;
-  font-size: 20px;
   padding: 4px;
+  font-size: 22px;
 }
 .talkBarItem li{
   width: 20%;
@@ -54,7 +54,7 @@ export default {
   width: 20%;
 }
 .talkBarItem ul:hover{
-  background: rgba(183, 231, 224, 0.54);
+  background: rgba(75, 147, 224, 0.34);
   cursor:pointer;
 }
 </style>

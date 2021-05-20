@@ -17,23 +17,23 @@ export default {
 
 <style scoped>
 .learn-title{
-  font-size: 24px;
+  font-size: 25px;
   position: relative;
   width:1000px;
-  background: rgba(102, 102, 102, 0.64);
-  color:white;
-  top:69px;
+  background: #339981;
+  color:snow;
   padding:5px 0 5px 3px;
   z-index: 2;
+  font-family: 微软雅黑;
+  font-weight: bolder;
 }
 .learn-video video{
   width:1000px;
+  position: relative;
+  top:-69px;
 }
 
-.video-button{
-  width: 1000px;
-  display: inline-block;
-}
+
 
 
 </style>

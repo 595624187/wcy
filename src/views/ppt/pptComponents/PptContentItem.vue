@@ -44,20 +44,20 @@ export default {
 
 <style scoped>
 .ppt-con{
+  padding-left:15px;
 }
 .ppt-con li{
   list-style: none;
   display: inline-flex;
-  font-size: 20px;
+  font-size: 22px;
   padding: 5px;
-  font-weight: bolder;
   width:20%;
 }
 .ppt-con #zhuti{
   width:40%;
 }
 .ppt-content-item ul:hover{
-  background: rgba(169, 222, 215, 0.54);
+  background: rgba(75, 147, 224, 0.34);
   cursor: pointer;
 }
 

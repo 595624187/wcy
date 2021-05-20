@@ -30,7 +30,7 @@ export default {
       movies:[],
       index:0,
       currentMovie:'',
-      maxIndex:0,
+      maxIndex:5,
     }
   },
   methods:{
@@ -41,14 +41,14 @@ export default {
 
   },
   created() {
-
   },
   mounted() {
     getMovies().then(res=>{
       this.movies=res.data.data
+      this.maxIndex=this.movies.length
+
     })
     this.currentMovie=this.movies[this.index]
-    this.maxIndex=this.movies.length
   }
 
 
@@ -64,5 +64,6 @@ export default {
   box-shadow:2px 2px 10px #909090;
   border-radius: 8px;
   background: snow;
+  padding-left:20px;
 }
 </style>

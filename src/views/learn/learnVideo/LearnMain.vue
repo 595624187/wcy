@@ -1,5 +1,6 @@
 <template>
  <div class="learn-main">
+   <h1 style="padding-left:50%">视频学习</h1>
    <learn-video>
      <div slot="learn-title"  >
        {{movie.id}}、 {{movie.name}}
@@ -41,7 +42,7 @@ export default {
       default:{
         id:1,
         name:'test',
-        url:'https://vdn.vzuu.com/HD/22c69f92-8ae6-11ea-8251-927918750bb0.mp4?disable_local_cache=1&auth_key=1621244408-0-0-4cb030a49fcc33742b439695dd05029e&f=mp4&bu=http-com&expiration=1621244408&v=ali'
+        url:'http://video.699pic.com/videos/88/83/88/a_TiRgSWMGY7jj1613888388.mp4'
       },
     }
   },

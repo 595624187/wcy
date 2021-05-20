@@ -45,5 +45,6 @@ export default {
   box-shadow:2px 2px 10px #909090;
   border-radius: 8px;
   background: snow;
+
 }
 </style>

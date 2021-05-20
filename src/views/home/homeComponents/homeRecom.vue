@@ -1,6 +1,7 @@
 <template>
   <div class="homeRecom">
       <h2>今日学习日记</h2>
+      <hr style="height:2px;background:#000;margin-top:5px;" >
       <div class="riji">
         <ul>
           <li>今天观看了<span>{{zhongjie.learn}}</span>个学习视频</li>
@@ -55,13 +56,13 @@ export default {
 
 <style scoped>
 .homeRecom{
-  width:380px;
+  width:500px;
   height:500px;
   float:right;
   position:relative;
   right:300px;
   background: rgba(87, 255, 149, 0.09);
-  margin:20px 40px 0 0;
+  margin:20px 40px 0 160px;
   border-radius: 10px;
   padding:100px 0 30px 20px;
 }
